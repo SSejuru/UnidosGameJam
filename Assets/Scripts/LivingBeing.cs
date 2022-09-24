@@ -72,6 +72,14 @@ public class LivingBeing : MonoBehaviour
             _currentHealth = _maxHealth;
     }
 
+    public virtual void AddMana(float manaPoints)
+    {
+        _currentMana += manaPoints;
+
+        if (_currentMana > _maxMana)
+            _currentMana = _maxMana;
+    }
+
     public virtual void Die()
     {
         _isDead = true;
