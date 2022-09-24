@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : LivingBeing
 {
-    [Header("Player Movement")]
-    [SerializeField] private float _movementSpeed;
-
     private Animator _animator;
     private Rigidbody2D _rigidBody;
 
@@ -14,6 +11,7 @@ public class PlayerController : MonoBehaviour
     {
         //_animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
+        InitializeStats();
     }
 
 
