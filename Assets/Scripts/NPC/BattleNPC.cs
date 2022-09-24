@@ -129,4 +129,10 @@ public class BattleNPC : LivingBeing
                 break;
         }
     }
+
+    public override void Die()
+    {
+        base.Die();
+        SetState(NPCState.Dead);
+    }
 }
