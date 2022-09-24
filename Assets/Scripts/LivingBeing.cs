@@ -24,6 +24,10 @@ public class LivingBeing : MonoBehaviour
     protected bool _isDead = false;
 
     public bool IsDead { get => _isDead; }
+    public float MaxHealth { get => _maxHealth; }
+    public float MaxMana { get => _maxMana; }
+    public float Health { get => _currentHealth; }
+    public float Mana { get => _currentMana; }
 
     private float _deathAnimTimer = 0.7f;
 
