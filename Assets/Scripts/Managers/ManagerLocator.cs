@@ -22,4 +22,5 @@ public class ManagerLocator
 
 
     public PlayerController _playerController;
+    public EnemiesManager _enemiesManager;
 }

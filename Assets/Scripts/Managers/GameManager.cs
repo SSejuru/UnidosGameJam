@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     PlayerController playerController;
-   
+
+    [SerializeField]
+    EnemiesManager enemiesManager;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public void SetManagers()
     {
-        ManagerLocator.Instance._playerController = playerController;   
+        ManagerLocator.Instance._playerController = playerController;  
+        ManagerLocator.Instance._enemiesManager = enemiesManager;
     }
 }
