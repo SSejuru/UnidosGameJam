@@ -28,6 +28,7 @@ public class BattleNPC : LivingBeing
     void Start()
     {
         InitializeStats();
+        ManagerLocator.Instance._npcManager.AddNpc(this);
         SetState(NPCState.Idle);
         GetComponent<Rigidbody2D>().isKinematic = true;
     }
@@ -133,7 +134,8 @@ public class BattleNPC : LivingBeing
 
     public override void Die()
     {
-        base.Die();
         SetState(NPCState.Dead);
+        ManagerLocator.Instance._npcManager.RemoveNPCFromList(this);
+        base.Die();
     }
 }

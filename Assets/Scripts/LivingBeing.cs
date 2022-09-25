@@ -128,6 +128,21 @@ public class LivingBeing : MonoBehaviour
         _manaRegenRate += rate;
     }
 
+    public void IncreaseAttackSpeed(float attack)
+    {
+        _attackTimer -= attack;
+    }
+
+    public void SlowAttackSpeed()
+    {
+        _attackTimer += _attackTimer / 2;
+    }
+
+    public void SlowMovement()
+    {
+        _movementSpeed = _movementSpeed / 2;
+    }
+
     public virtual void Die()
     {
         _isDead = true;

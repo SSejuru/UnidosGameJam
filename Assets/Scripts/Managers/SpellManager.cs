@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellManager : MonoBehaviour
 {
-    public void CastSpell(Spell spellToCast)
+    public void CastSpell(Spell spellToCast, LivingBeing target = null)
     {
         switch (spellToCast.spellTarget)
         {
@@ -20,14 +20,19 @@ public class SpellManager : MonoBehaviour
                 switch (spellToCast.spellEffect)
                 {
                     case SpellEffect.IncreaseAttackSpeed:
+                        ManagerLocator.Instance._npcManager.IncreaseAllAttackSpeed(spellToCast.spellAmmount);
                         break;
                     case SpellEffect.Heal:
+                        ManagerLocator.Instance._npcManager.HealAllNPCS(spellToCast.spellAmmount);
                         break;                  
                     case SpellEffect.AddShield:
+                        ManagerLocator.Instance._npcManager.ShieldAllNPCS(spellToCast.spellAmmount);
                         break;         
                     case SpellEffect.GiveMana:
+                        ManagerLocator.Instance._npcManager.AddManaAllNPCS(spellToCast.spellAmmount);
                         break;      
                     case SpellEffect.IncreaseManaRate:
+                        ManagerLocator.Instance._npcManager.IncreaseManaRateAll(spellToCast.spellAmmount);
                         break;
                 }
                 break;
@@ -35,26 +40,34 @@ public class SpellManager : MonoBehaviour
                 switch (spellToCast.spellEffect)
                 {
                     case SpellEffect.SlowMovement:
+                        ManagerLocator.Instance._enemiesManager.SlowEnemies();
                         break;
                     case SpellEffect.SlowAttackSpeed:
-                        break;                  
+                        ManagerLocator.Instance._enemiesManager.ReduceEnemiesAttackSpeed();
+                        break;
+                    case SpellEffect.TOTALDESTRUCTION:
+                        ManagerLocator.Instance._enemiesManager.DESTROYEVERYTHING();
+                        break;
                 }
                 break;
             case SpellTarget.MouseTarget:
 
-                //LivingBeing target = FindTarget();
-
                 switch (spellToCast.spellEffect)
                 {
                     case SpellEffect.IncreaseAttackSpeed:
+                        target.IncreaseAttackSpeed(spellToCast.spellAmmount);
                         break;
                     case SpellEffect.Heal:
+                        target.Heal(spellToCast.spellAmmount);
                         break;
                     case SpellEffect.AddShield:
+                        target.GiveShield(spellToCast.spellAmmount);
                         break;
                     case SpellEffect.GiveMana:
+                        target.AddMana(spellToCast.spellAmmount);
                         break;
                     case SpellEffect.IncreaseManaRate:
+                        target.AddManaRegenRate(spellToCast.spellAmmount);
                         break;
                 }
                 break;
@@ -62,6 +75,7 @@ public class SpellManager : MonoBehaviour
                 switch (spellToCast.spellEffect)
                 {              
                     case SpellEffect.Heal:
+                        //Heal Barrie
                         break;
                     case SpellEffect.AddShield:
                         break;

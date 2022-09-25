@@ -29,6 +29,7 @@ public class Enemy : LivingBeing
     void Start()
     {
         InitializeStats();
+        ManagerLocator.Instance._enemiesManager.AddEnemy(this);
         _rigidBody = GetComponent<Rigidbody2D>();
         SetState(EnemyState.SearchingTarget);
     }
@@ -166,9 +167,9 @@ public class Enemy : LivingBeing
 
     public override void Die()
     {
-        base.Die();
-
         SetState(EnemyState.Dead);
+        ManagerLocator.Instance._enemiesManager.RemoveEnemyFromList(this);
+        base.Die();
     }
 
 
