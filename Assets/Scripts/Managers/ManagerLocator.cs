@@ -23,4 +23,7 @@ public class ManagerLocator
 
     public PlayerController _playerController;
     public EnemiesManager _enemiesManager;
+    public NPCManager _npcManager;
+    public SpellManager _spellManager;
+    public UIManager _uiManager;
 }

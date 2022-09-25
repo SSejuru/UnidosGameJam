@@ -11,6 +11,7 @@ public class LivingBeing : MonoBehaviour
     [SerializeField] protected float _shieldHealth = 0f;
     [SerializeField] protected float _movementSpeed = 3f;
     [SerializeField] protected bool _usesMana = true;
+    [SerializeField] protected float _manaRegenRate = 0.5f;
 
     [Header("Attack Stats")]
     [SerializeField] protected float _attackTimer = 1f; // Attacks every X seconds
@@ -30,7 +31,7 @@ public class LivingBeing : MonoBehaviour
     public float Mana { get => _currentMana; }
 
     private float _deathAnimTimer = 0.7f;
-
+    private float _manaTimer = 0f;
 
     protected void InitializeStats()
     {
@@ -59,14 +60,42 @@ public class LivingBeing : MonoBehaviour
 
         Debug.Log(gameObject.name + " Health:  " + _currentHealth + ".");
 
+        Mathf.Clamp(_currentHealth, 0 , _maxHealth);
+
+        ManagerLocator.Instance._uiManager.UIHealthUpdate(_currentHealth, this);
+        ManagerLocator.Instance._uiManager.UIShieldUpdate(_shieldHealth, this);
+
 
         //Check if died
         if (_currentHealth <= 0)
-        {
-            _currentHealth = 0;
+        {       
             Die();
         }
     } 
+
+    protected virtual void Update()
+    {
+        CheckForManaRegen();
+    }
+
+    protected void CheckForManaRegen()
+    {
+        if (!_usesMana)
+            return;
+
+        if(_manaTimer <= 1)
+        {
+            _manaTimer += Time.deltaTime;
+        }
+        else
+        {
+            _manaTimer = 0;
+            _currentMana += _manaRegenRate;
+            Mathf.Clamp(_currentMana, 0, _maxMana);
+            ManagerLocator.Instance._uiManager.UIManaUpdate(_currentMana, this);
+        }
+
+    }
 
     public virtual void Heal(float heal)
     {
@@ -74,6 +103,14 @@ public class LivingBeing : MonoBehaviour
 
         if (_currentHealth > _maxHealth)
             _currentHealth = _maxHealth;
+
+        ManagerLocator.Instance._uiManager.UIHealthUpdate(_currentHealth, this);
+    }
+
+    public void GiveShield(float shield)
+    {
+        _shieldHealth += shield;
+        ManagerLocator.Instance._uiManager.UIShieldUpdate(_shieldHealth, this);
     }
 
     public virtual void AddMana(float manaPoints)
