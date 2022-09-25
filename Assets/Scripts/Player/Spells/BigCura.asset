@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df46c315b54b6c54c8791bbe0e0fb5af, type: 3}
   m_Name: BigCura
   m_EditorClassIdentifier: 
-  spellEffect: 0
-  spellTarget: 0
+  spellEffect: 2
+  spellTarget: 1
   spellAmmount: 40
   castTime: 3
   spellCost: 50

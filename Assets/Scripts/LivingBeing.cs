@@ -119,6 +119,8 @@ public class LivingBeing : MonoBehaviour
 
         if (_currentMana > _maxMana)
             _currentMana = _maxMana;
+
+        ManagerLocator.Instance._uiManager.UIManaUpdate(_currentMana, this);
     }
 
     public virtual void Die()
