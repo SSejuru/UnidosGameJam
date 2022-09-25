@@ -17,13 +17,12 @@ public enum SpellEffect
 {
     SlowMovement,
     SlowAttackSpeed,
-    HealAll,
-    HealSingle,
-    ShieldAll,
-    ShieldSingle,
-    GiveManaSingle,
-    GiveManaAll,
-    SpawnBarrier
+    Heal,
+    AddShield,
+    GiveMana,
+    SpawnBarrier,
+    IncreaseManaRate,
+    IncreaseAttackSpeed
 }
 
 [CreateAssetMenu(fileName = "New Spell", menuName = "Spell")]

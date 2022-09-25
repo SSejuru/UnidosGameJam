@@ -123,6 +123,11 @@ public class LivingBeing : MonoBehaviour
         ManagerLocator.Instance._uiManager.UIManaUpdate(_currentMana, this);
     }
 
+    public void AddManaRegenRate(float rate)
+    {
+        _manaRegenRate += rate;
+    }
+
     public virtual void Die()
     {
         _isDead = true;
