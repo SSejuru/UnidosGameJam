@@ -93,6 +93,12 @@ public class Enemy : LivingBeing
         if (_currentState != EnemyState.Moving)
             return;
         
+        if (_target == null)
+        {
+            SetState(EnemyState.SearchingTarget);
+            return;
+        }
+
         Vector3 directionToTarget = _target.transform.position - transform.position;
         directionToTarget.Normalize();
 
@@ -146,6 +152,7 @@ public class Enemy : LivingBeing
     {
         _currentState = state;
         _rigidBody.isKinematic = false;
+        _rigidBody.velocity = Vector2.zero;
 
         //Execute animation for each
         switch (state)
