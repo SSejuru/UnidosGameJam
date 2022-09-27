@@ -26,4 +26,5 @@ public class ManagerLocator
     public NPCManager _npcManager;
     public SpellManager _spellManager;
     public UIManager _uiManager;
+    public MiniGamesManager _miniGamesManager;
 }

@@ -7,6 +7,22 @@ public class PlayerController : LivingBeing
     private Animator _animator;
     private Rigidbody2D _rigidBody;
 
+    private bool _canMove = true;
+
+    public void SetMovingStatus(bool canMove)
+    {
+        _canMove = canMove;
+
+        if (!canMove) // If player stops moving, make sure it stays in the same place until movement is active again
+        {
+            _rigidBody.isKinematic = true;
+            _rigidBody.velocity = Vector3.zero;
+        }
+        else
+            _rigidBody.isKinematic = false;
+
+    }
+
     private void Start()
     {
         //_animator = GetComponent<Animator>();
@@ -28,6 +44,9 @@ public class PlayerController : LivingBeing
 
     private void MovePlayer()
     {
+        if (!_canMove) // Return if player cant move
+            return;
+
         Vector2 direction = Vector2.zero;
         if (Input.GetKey(KeyCode.A))
         {

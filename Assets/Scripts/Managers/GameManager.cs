@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     UIManager uiManager;
 
+    [SerializeField]
+    MiniGamesManager miniGamesManager;
+
     private void Awake()
     {
         SetManagers();
@@ -31,5 +34,6 @@ public class GameManager : MonoBehaviour
         ManagerLocator.Instance._npcManager = npcManager;
         ManagerLocator.Instance._spellManager = spellManager;
         ManagerLocator.Instance._uiManager = uiManager;
+        ManagerLocator.Instance._miniGamesManager = miniGamesManager;
     }
 }
