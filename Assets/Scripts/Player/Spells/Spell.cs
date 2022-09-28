@@ -34,7 +34,6 @@ public class Spell : ScriptableObject
 
     [Tooltip("Value that describes the ammount of what the spells do, For example: 100 in Heall will heall allies by 100")]
     public float spellAmmount;
-    public float castTime = 0f;
     public float spellCost = 10f;
     public float cooldown = 1f;
 

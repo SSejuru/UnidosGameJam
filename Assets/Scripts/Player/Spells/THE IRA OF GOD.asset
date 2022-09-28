@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df46c315b54b6c54c8791bbe0e0fb5af, type: 3}
-  m_Name: SuperEscudeichon
+  m_Name: THE IRA OF GOD
   m_EditorClassIdentifier: 
-  spellEffect: 4
-  spellTarget: 1
-  spellAmmount: 30
-  spellCost: 30
-  cooldown: 1
-  description: ESCUDEICHON PARA TODOS
-  spellName: Super Escudeichon
+  spellEffect: 8
+  spellTarget: 2
+  spellAmmount: 99999
+  castTime: 0
+  spellCost: 500
+  cooldown: 0
+  description: GOD IS FURIOSO WITH THE ENEMIES AND WILL PROTECT YOUR AMIGOS BY KILLING
+    ALL SPAWNS OF SATANAS
+  spellName: THE IRA OF GOD
   spellImage: {fileID: 0}

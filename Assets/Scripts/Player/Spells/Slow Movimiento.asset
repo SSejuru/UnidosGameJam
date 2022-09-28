@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df46c315b54b6c54c8791bbe0e0fb5af, type: 3}
-  m_Name: SuperEscudeichon
+  m_Name: Slow Movimiento
   m_EditorClassIdentifier: 
-  spellEffect: 4
-  spellTarget: 1
-  spellAmmount: 30
-  spellCost: 30
-  cooldown: 1
-  description: ESCUDEICHON PARA TODOS
-  spellName: Super Escudeichon
+  spellEffect: 0
+  spellTarget: 0
+  spellAmmount: 0
+  spellCost: 15
+  cooldown: 10
+  description: Let your amigos breath a little bit from battling all these pecadores,
+    slow the movimiento of your enemies to delay them from coming to attack
+  spellName: Slow Movimiento
   spellImage: {fileID: 0}

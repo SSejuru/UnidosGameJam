@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df46c315b54b6c54c8791bbe0e0fb5af, type: 3}
-  m_Name: SuperEscudeichon
+  m_Name: RusheoMPS
   m_EditorClassIdentifier: 
-  spellEffect: 4
-  spellTarget: 1
-  spellAmmount: 30
-  spellCost: 30
+  spellEffect: 6
+  spellTarget: 0
+  spellAmmount: 0.2
+  spellCost: 20
   cooldown: 1
-  description: ESCUDEICHON PARA TODOS
-  spellName: Super Escudeichon
+  description: Increase your MANA POR SEGUNDO (MPS) to get mana rapido!
+  spellName: Rusheo MPS
   spellImage: {fileID: 0}

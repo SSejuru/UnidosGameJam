@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df46c315b54b6c54c8791bbe0e0fb5af, type: 3}
-  m_Name: SuperEscudeichon
+  m_Name: Dont Hit Us Porfavor
   m_EditorClassIdentifier: 
-  spellEffect: 4
-  spellTarget: 1
-  spellAmmount: 30
-  spellCost: 30
-  cooldown: 1
-  description: ESCUDEICHON PARA TODOS
-  spellName: Super Escudeichon
+  spellEffect: 0
+  spellTarget: 0
+  spellAmmount: 0
+  spellCost: 20
+  cooldown: 15
+  description: Reduces all enemies Ataque speed to la mitad (Only affects enemies
+    vivos)
+  spellName: Dont Hit Us Por favor
   spellImage: {fileID: 0}
