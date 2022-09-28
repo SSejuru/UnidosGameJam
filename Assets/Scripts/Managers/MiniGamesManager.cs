@@ -5,7 +5,7 @@ using TMPro;
 
 public enum MinigameType
 {
-    RuneWordle
+    RuneWordle,
 }
 
 public class MiniGamesManager : MonoBehaviour

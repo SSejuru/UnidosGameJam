@@ -34,9 +34,8 @@ public class BattleNPC : LivingBeing
     }
 
     // Update is called once per frame
-    protected override void Update()
+    protected void Update()
     {
-        base.Update();
         CheckForEnemies();
         Attack();
     }

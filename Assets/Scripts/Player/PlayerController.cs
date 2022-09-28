@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PlayerController : LivingBeing
 {
+    [SerializeField] protected float _maxMana = 80f;
+    [SerializeField] protected float _manaRegenRate = 0.5f;
+
+    protected float _currentMana;
+    private float _manaTimer = 0f;
+
+    public float MaxMana { get => _maxMana; }
+    public float Mana { get => _currentMana; }
+
     private Animator _animator;
     private Rigidbody2D _rigidBody;
 
@@ -28,19 +37,45 @@ public class PlayerController : LivingBeing
         //_animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
         InitializeStats();
+        AddMana(20);
     }
 
 
-    protected override void Update()
+    protected void Update()
     {
-        base.Update();
+        CheckForManaRegen();
         MovePlayer();
     }
 
-    public void CastSpell()
+    protected void CheckForManaRegen()
     {
-
+        if (_manaTimer <= 1)
+        {
+            _manaTimer += Time.deltaTime;
+        }
+        else
+        {
+            _manaTimer = 0;
+            _currentMana += _manaRegenRate;
+            Mathf.Clamp(_currentMana, 0, _maxMana);
+            ManagerLocator.Instance._uiManager.UIManaUpdate(_currentMana);
+        }
     }
+
+    public void AddMana(float manaPoints)
+    {
+        _currentMana += manaPoints;
+
+        Mathf.Clamp(_currentMana, 0, _maxMana);
+
+        ManagerLocator.Instance._uiManager.UIManaUpdate(_currentMana);
+    }
+
+    public void AddManaRegenRate(float rate)
+    {
+        _manaRegenRate += rate;
+    }
+
 
     private void MovePlayer()
     {

@@ -44,5 +44,5 @@ public class Spell : ScriptableObject
     [Tooltip("Skill name in the UI")]
     public string spellName;
     [Tooltip("Skill image for the UI")]
-    public Image spellImage;
+    public Sprite spellImage;
 }

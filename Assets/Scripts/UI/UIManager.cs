@@ -27,9 +27,13 @@ public class UIManager : MonoBehaviour
 
     // Update players and NPC health, mana
 
-    public void UIManaUpdate(float instigatorMana, LivingBeing instigator)
+    public void UIManaUpdate(float playerMana)
     {
         // Update spells and UI
+        for(int i = 0; i < _uiSpells.Count; i++)
+        {
+            _uiSpells[i].UpdateStatus(playerMana);
+        }
     }
 
     public void UIHealthUpdate(float instigatorHealth, LivingBeing instigator)

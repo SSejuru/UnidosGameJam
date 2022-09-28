@@ -33,14 +33,6 @@ public class NPCManager : MonoBehaviour
         }
     }
 
-    public void AddManaAllNPCS(float mana)
-    {
-        for (int i = 0; i < _activeNPCs.Count; i++)
-        {
-            _activeNPCs[i].AddMana(mana);
-        }
-    }
-
     public void IncreaseAllAttackSpeed(float attackspeed)
     {
         for (int i = 0; i < _activeNPCs.Count; i++)
@@ -49,11 +41,4 @@ public class NPCManager : MonoBehaviour
         }
     }
 
-    public void IncreaseManaRateAll(float ammount)
-    {
-        for (int i = 0; i < _activeNPCs.Count; i++)
-        {
-            _activeNPCs[i].AddManaRegenRate(ammount);
-        }
-    }
 }

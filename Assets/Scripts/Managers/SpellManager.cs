@@ -27,13 +27,7 @@ public class SpellManager : MonoBehaviour
                         break;                  
                     case SpellEffect.AddShield:
                         ManagerLocator.Instance._npcManager.ShieldAllNPCS(spellToCast.spellAmmount);
-                        break;         
-                    case SpellEffect.GiveMana:
-                        ManagerLocator.Instance._npcManager.AddManaAllNPCS(spellToCast.spellAmmount);
-                        break;      
-                    case SpellEffect.IncreaseManaRate:
-                        ManagerLocator.Instance._npcManager.IncreaseManaRateAll(spellToCast.spellAmmount);
-                        break;
+                        break;                 
                 }
                 break;
             case SpellTarget.Enemies:
@@ -54,42 +48,18 @@ public class SpellManager : MonoBehaviour
 
                 switch (spellToCast.spellEffect)
                 {
-                    case SpellEffect.IncreaseAttackSpeed:
-                        target.IncreaseAttackSpeed(spellToCast.spellAmmount);
-                        break;
                     case SpellEffect.Heal:
                         target.Heal(spellToCast.spellAmmount);
                         break;
                     case SpellEffect.AddShield:
                         target.GiveShield(spellToCast.spellAmmount);
-                        break;
-                    case SpellEffect.GiveMana:
-                        target.AddMana(spellToCast.spellAmmount);
-                        break;
-                    case SpellEffect.IncreaseManaRate:
-                        target.AddManaRegenRate(spellToCast.spellAmmount);
-                        break;
-                }
-                break;
-            case SpellTarget.Barrier:
-                switch (spellToCast.spellEffect)
-                {              
-                    case SpellEffect.Heal:
-                        //Heal Barrie
-                        break;
-                    case SpellEffect.AddShield:
-                        break;
-                }
-                break;
-            case SpellTarget.World:
-                switch (spellToCast.spellEffect)
-                {
-                    case SpellEffect.SpawnBarrier:
-                        // Spawn barrier
-                        break;
+                        break;                 
                 }
                 break;
         }
+
+        ManagerLocator.Instance._playerController.AddMana(-spellToCast.spellCost);
+
     }
 
 }
