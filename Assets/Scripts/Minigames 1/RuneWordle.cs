@@ -14,6 +14,10 @@ public enum Runes
 
 public class RuneWordle : Minigame
 {
+    [Header("Rune scriptables")]
+    [SerializeField] Rune[] _runesScriptables = new Rune[5];
+
+    [Space(10)]
 
     [SerializeField]
     private Button _button;
@@ -165,5 +169,18 @@ public class RuneWordle : Minigame
     {
         _button.interactable = false;
         _count = 0;
+    }
+
+    private Sprite GetRuneSprite(Runes runeType)
+    {
+        for(int i = 0; i < _runesScriptables.Length; i++)
+        {
+            if(_runesScriptables[i].type == runeType)
+            {
+                return _runesScriptables[i].img;
+            }
+        }
+
+        return null;
     }
 }

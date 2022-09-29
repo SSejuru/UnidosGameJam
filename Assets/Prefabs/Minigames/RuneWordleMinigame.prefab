@@ -99,10 +99,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6109c416189fd9e418d4d3d81094f262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasMinigame: {fileID: 0}
   _type: 0
-  _manaOnWin: 20
+  _manaOnWin: 40
   _timeToFinishMinigame: 30
   _cooldownTimer: 10
+  _runesScriptables:
+  - {fileID: 11400000, guid: 4e9bfc1bb2180074fad0917226440f0f, type: 2}
+  - {fileID: 11400000, guid: 02d97e6050c71f34f9b25d1dc94e836f, type: 2}
+  - {fileID: 11400000, guid: e5ca5782f96458d4b903e551b066c147, type: 2}
+  - {fileID: 11400000, guid: 08e3ac4af2155fc40b9078e73a429c7d, type: 2}
+  - {fileID: 11400000, guid: 41645fc2bee9bea4098d710e6805bf27, type: 2}
+  _button: {fileID: 0}
+  _guessPanel: {fileID: 0}
+  _triesPanel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!58 &5376679048694750023
 CircleCollider2D:
   m_ObjectHideFlags: 0

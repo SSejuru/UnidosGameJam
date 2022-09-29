@@ -5393,7 +5393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7478438916980133073, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.80145264
+      value: -0.80148315
       objectReference: {fileID: 0}
     - target: {fileID: 7478438917116521736, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_Name
@@ -14444,10 +14444,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 732533781}
     - target: {fileID: 5376679048694750022, guid: f923b287674cbe1419346fb3346e46d6, type: 3}
-      propertyPath: _manaOnWin
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5376679048694750022, guid: f923b287674cbe1419346fb3346e46d6, type: 3}
       propertyPath: _guessPanel
       value: 
       objectReference: {fileID: 732533782}
@@ -14455,10 +14451,6 @@ PrefabInstance:
       propertyPath: _canvasMinigame
       value: 
       objectReference: {fileID: 732533780}
-    - target: {fileID: 5376679048694750022, guid: f923b287674cbe1419346fb3346e46d6, type: 3}
-      propertyPath: _timeToFinishMinigame
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 5376679048694750022, guid: f923b287674cbe1419346fb3346e46d6, type: 3}
       propertyPath: _triesPanel.Array.data[0]
       value: 
