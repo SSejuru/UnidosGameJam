@@ -26,11 +26,15 @@ public class MiniGamesManager : MonoBehaviour
     {
         ManagerLocator.Instance._playerController.SetMovingStatus(false);
         ManagerLocator.Instance._uiManager.EnableSpellBarData(false);
+        ManagerLocator.Instance._playerController.InteractionComp.ToggleInteraction(false);
+
 
         _currentActiveMinigame = game;
         _currentTimer = _currentActiveMinigame.TimeToFinishMinigame; 
 
         //Set text to timerText and turn on timerGOBJ
+        _timer.gameObject.SetActive(true);
+        _timerText.text = _currentTimer.ToString("F0");
 
         _activeTimer = true;
     }
@@ -38,20 +42,23 @@ public class MiniGamesManager : MonoBehaviour
     public void StopMinigameTimer()
     {
         _activeTimer = false;
-
-        //Turn off  timerText and timerGOBJ
+        _timer.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         if (_activeTimer)
         {
-            if(_currentTimer > 0)
+            if (_currentTimer > 0)
+            {
                 _currentTimer -= Time.deltaTime;
+                _timerText.text = _currentTimer.ToString("F0");
+            }
             else
             {
                 _activeTimer = false;
                 _currentActiveMinigame.EndMinigame(false);
+                _timer.gameObject.SetActive(false);
             }
 
         }

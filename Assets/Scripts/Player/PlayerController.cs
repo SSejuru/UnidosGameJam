@@ -18,6 +18,15 @@ public class PlayerController : LivingBeing
 
     private bool _canMove = true;
 
+    private PlayerInteraction _interactionComp;
+    public PlayerInteraction InteractionComp { get => _interactionComp; }
+
+
+    private void Awake()
+    {
+        _interactionComp = GetComponent<PlayerInteraction>();
+    }
+
     public void SetMovingStatus(bool canMove)
     {
         _canMove = canMove;

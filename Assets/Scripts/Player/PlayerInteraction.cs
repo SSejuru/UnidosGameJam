@@ -13,12 +13,19 @@ public class PlayerInteraction : MonoBehaviour
     // Object to interact
     private IInteractable _objectWithInterface;
 
+    public bool _canInteract = true;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && _canInteract)
         {
             SearchInteraction();
         }
+    }
+
+    public void ToggleInteraction(bool value)
+    {
+        _canInteract = value;
     }
 
     private void SearchInteraction()

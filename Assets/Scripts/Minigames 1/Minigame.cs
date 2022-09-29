@@ -63,6 +63,7 @@ public class Minigame : MonoBehaviour, IInteractable
 
         ManagerLocator.Instance._playerController.SetMovingStatus(true);
         ManagerLocator.Instance._uiManager.EnableSpellBarData(true);
+        ManagerLocator.Instance._playerController.InteractionComp.ToggleInteraction(true);
 
 
         //Activate UI for cooldown in gameObject (TODO Later)

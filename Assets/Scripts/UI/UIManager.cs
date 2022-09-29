@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _spellCost;
     [SerializeField] private GameObject _manaIconImage;
 
-     private List<SpellUI> _uiSpells = new List<SpellUI>();
+    private List<SpellUI> _uiSpells = new List<SpellUI>();
 
     private bool _isDescriptionPanelActive = false;
 
@@ -34,18 +34,11 @@ public class UIManager : MonoBehaviour
 
     public void ToggleSpellBookDescriptionPanel()
     {
-        if (!_isDescriptionPanelActive)
-        {
-            _spellBookPanel.SetActive(true);
-            _spellContainer.SetActive(false);
-        }
-        else
-        {
-            _spellBookPanel.SetActive(false);
-            _spellContainer.SetActive(true);
-        }
-
         _isDescriptionPanelActive = !_isDescriptionPanelActive;
+
+        _spellBookPanel.SetActive(_isDescriptionPanelActive);
+        _spellContainer.SetActive(!_isDescriptionPanelActive);
+        ManagerLocator.Instance._playerController.InteractionComp.ToggleInteraction(!_isDescriptionPanelActive);
     }
 
     public void HoverSpellBookIcon(Spell spell)
@@ -75,7 +68,7 @@ public class UIManager : MonoBehaviour
     public void UIManaUpdate(float playerMana)
     {
         // Update spells and UI
-        for(int i = 0; i < _uiSpells.Count; i++)
+        for (int i = 0; i < _uiSpells.Count; i++)
         {
             _uiSpells[i].UpdateStatus(playerMana);
         }
