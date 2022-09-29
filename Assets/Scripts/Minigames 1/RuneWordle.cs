@@ -73,7 +73,7 @@ public class RuneWordle : Minigame
         SubmitButtonCheck();
     }
 
-    private void SubmitAnswer()
+    public void SubmitAnswer()
     {
         //Debug.Log("respuesta enviada");
         ResetCount();
