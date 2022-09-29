@@ -38,8 +38,6 @@ public class LivingBeing : MonoBehaviour
     /// <param name="damage"></param>
     public virtual void ApplyDamage(float damage)
     {
-        Debug.Log(gameObject.name + " recieved " + damage + " damage.");
-
         //Apply damage to shield
         _shieldHealth -= damage;
 
@@ -48,9 +46,7 @@ public class LivingBeing : MonoBehaviour
         {
             _currentHealth += _shieldHealth;
             _shieldHealth = 0;
-        }
-
-        Debug.Log(gameObject.name + " Health:  " + _currentHealth + ".");
+        }    
 
         Mathf.Clamp(_currentHealth, 0 , _maxHealth);
 

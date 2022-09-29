@@ -60,7 +60,10 @@ public class Minigame : MonoBehaviour, IInteractable
 
         _isOnCooldown = true;      
         _canvasMinigame.SetActive(false);
+
         ManagerLocator.Instance._playerController.SetMovingStatus(true);
+        ManagerLocator.Instance._uiManager.EnableSpellBarData(true);
+
 
         //Activate UI for cooldown in gameObject (TODO Later)
     }

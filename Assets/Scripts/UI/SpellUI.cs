@@ -13,8 +13,8 @@ public class SpellUI : MonoBehaviour
     [SerializeField]
     private Image _spellInactiveIcon;
 
-    private bool _isOnCoolDown;
-    private bool _canBeCasted;
+    private bool _isOnCoolDown = false;
+    private bool _canBeCasted = false;
 
     private float _currentPlayerMana = 0f;
 
@@ -24,42 +24,37 @@ public class SpellUI : MonoBehaviour
         ManagerLocator.Instance._uiManager.AddSpell(this);
 
         // Set up Data
-        //_spellIcon.sprite = _magicSpell.spellImage;
-       // _spellInactiveIcon.sprite = _magicSpell.spellImage;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _spellIcon.sprite = _magicSpell.spellImage;
+        _spellInactiveIcon.sprite = _magicSpell.spellImage;
+        _currentPlayerMana = ManagerLocator.Instance._playerController.Mana;
+        CheckForSpellStatus();
     }
 
     public void UpdateStatus(float playerMana)
     {
-       _currentPlayerMana = playerMana;
+        _currentPlayerMana = playerMana;
         CheckForSpellStatus();
     }
 
     private void CheckForSpellStatus()
     {
-        //if (!_isOnCoolDown && _currentPlayerMana >= _magicSpell.spellCost)
-        //{
-        //    _spellInactiveIcon.enabled = false;
-        //    _canBeCasted = true;
-        //}
-        //else
-        //{
-        //    _spellInactiveIcon.enabled = true;
-        //    _canBeCasted = false;
-        //}
+        if (!_isOnCoolDown && _currentPlayerMana >= _magicSpell.spellCost)
+        {
+            _spellInactiveIcon.enabled = false;
+            _canBeCasted = true;
+        }
+        else
+        {
+            _spellInactiveIcon.enabled = true;
+            _canBeCasted = false;
+        }
     }
 
     public void TryCast()
     {
         if (_canBeCasted)
         {
-            if(_magicSpell.spellTarget == SpellTarget.MouseTarget)
+            if (_magicSpell.spellTarget == SpellTarget.MouseTarget)
             {
                 // Find target with click
             }

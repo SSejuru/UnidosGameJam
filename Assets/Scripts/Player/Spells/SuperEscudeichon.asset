@@ -15,8 +15,8 @@ MonoBehaviour:
   spellEffect: 4
   spellTarget: 1
   spellAmmount: 30
-  spellCost: 30
+  spellCost: 90
   cooldown: 1
   description: ESCUDEICHON PARA TODOS
   spellName: Super Escudeichon
-  spellImage: {fileID: 0}
+  spellImage: {fileID: 21300000, guid: 65aa42126710d26469879dd8d8e790e6, type: 3}

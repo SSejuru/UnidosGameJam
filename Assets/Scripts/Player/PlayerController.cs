@@ -38,6 +38,7 @@ public class PlayerController : LivingBeing
         _rigidBody = GetComponent<Rigidbody2D>();
         InitializeStats();
         AddMana(20);
+        ManagerLocator.Instance._uiManager.ManaPerSecondUIUpdate(_manaRegenRate);
     }
 
 
@@ -74,6 +75,7 @@ public class PlayerController : LivingBeing
     public void AddManaRegenRate(float rate)
     {
         _manaRegenRate += rate;
+        ManagerLocator.Instance._uiManager.ManaPerSecondUIUpdate(_manaRegenRate);
     }
 
 

@@ -25,6 +25,7 @@ public class MiniGamesManager : MonoBehaviour
     public void StartMinigame(Minigame game)
     {
         ManagerLocator.Instance._playerController.SetMovingStatus(false);
+        ManagerLocator.Instance._uiManager.EnableSpellBarData(false);
 
         _currentActiveMinigame = game;
         _currentTimer = _currentActiveMinigame.TimeToFinishMinigame; 

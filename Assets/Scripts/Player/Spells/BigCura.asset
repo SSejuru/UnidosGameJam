@@ -15,8 +15,8 @@ MonoBehaviour:
   spellEffect: 2
   spellTarget: 1
   spellAmmount: 40
-  castTime: 3
-  spellCost: 50
+  spellCost: 90
+  cooldown: 1
   description: Cura puntos to all of your amigos
   spellName: Big Cura
-  spellImage: {fileID: 0}
+  spellImage: {fileID: 21300000, guid: 65aa42126710d26469879dd8d8e790e6, type: 3}

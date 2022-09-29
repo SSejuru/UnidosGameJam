@@ -15,9 +15,9 @@ MonoBehaviour:
   spellEffect: 0
   spellTarget: 0
   spellAmmount: 0
-  spellCost: 15
+  spellCost: 50
   cooldown: 10
   description: Let your amigos breath a little bit from battling all these pecadores,
     slow the movimiento of your enemies to delay them from coming to attack
   spellName: Slow Movimiento
-  spellImage: {fileID: 0}
+  spellImage: {fileID: 21300000, guid: 65aa42126710d26469879dd8d8e790e6, type: 3}
