@@ -79,6 +79,8 @@ public class PlayerController : LivingBeing
         Mathf.Clamp(_currentMana, 0, _maxMana);
 
         ManagerLocator.Instance._uiManager.UIManaUpdate(_currentMana);
+        ManagerLocator.Instance._uiManager.DisplayManaAnimation(manaPoints);
+
     }
 
     public void AddManaRegenRate(float rate)

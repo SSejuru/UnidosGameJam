@@ -65,6 +65,11 @@ public class UIManager : MonoBehaviour
 
     // Update players and NPC health, mana
 
+    public void DisplayManaAnimation(float AddedMana)
+    {
+
+    }
+
     public void UIManaUpdate(float playerMana)
     {
         // Update spells and UI

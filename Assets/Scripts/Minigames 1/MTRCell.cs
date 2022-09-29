@@ -9,11 +9,18 @@ public class MTRCell : SimpleButton
     [SerializeField] private Image _runeImage;
     private Runes _runeType;
 
+    private MatchTheRune _controller;
+
     public Image RuneImage { get => _runeImage; set => _runeImage = value; }
     public Runes RuneType { get => _runeType; set => _runeType = value; }
 
+    public void Initialize(MatchTheRune controller)
+    {
+        _controller = controller;
+    }
+
     public override void OnPointerClick(PointerEventData eventData)
     {
-        _runeImage.gameObject.SetActive(true);
+        _controller.ActivateRune(this);
     }
 }

@@ -22,6 +22,8 @@ public class Minigame : MonoBehaviour, IInteractable
     private float _timerCD = 0f;
 
     public float TimeToFinishMinigame { get => _timeToFinishMinigame; }
+    public float ManaOnWin { get => _manaOnWin; }
+    public GameObject CanvasMinigame { get => _canvasMinigame; }
 
     protected virtual void Update()
     {
@@ -48,23 +50,13 @@ public class Minigame : MonoBehaviour, IInteractable
     /// <summary>
     /// Checks if player wins and closes minigame, activating its cooldown
     /// </summary>
-    public void EndMinigame(bool minigameWon)
+    public virtual void EndMinigame(bool minigameWon)
     {
         Debug.Log(_type + " minigame ended, Win status : " + minigameWon); // Debugs for dparty
 
-        if (minigameWon)
-        {
-            ManagerLocator.Instance._miniGamesManager.StopMinigameTimer();
-            ManagerLocator.Instance._playerController.AddMana(_manaOnWin);
-        }
-
         _isOnCooldown = true;      
-        _canvasMinigame.SetActive(false);
 
-        ManagerLocator.Instance._playerController.SetMovingStatus(true);
-        ManagerLocator.Instance._uiManager.EnableSpellBarData(true);
-        ManagerLocator.Instance._playerController.InteractionComp.ToggleInteraction(true);
-
+        ManagerLocator.Instance._miniGamesManager.EndMinigameStatus(minigameWon);
 
         //Activate UI for cooldown in gameObject (TODO Later)
     }
