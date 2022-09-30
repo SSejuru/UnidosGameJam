@@ -29,6 +29,7 @@ public class RuneWordle : Minigame
 
     int _randNumber;
     int _count = 0;
+    int _tryAttempt = 0;
     int[] _rightAnswerPositions = new int[4];
     bool _rightAnswer = false;
     bool _rightWord = false;
@@ -36,6 +37,7 @@ public class RuneWordle : Minigame
     Runes _rune;
     Runes[] _runeRandomSequence = new Runes[4];
     Runes[] _runeGuessSequence = new Runes[4];
+    Sprite[] _runeGuessSequenceImages = new Sprite[4];
 
 
 
@@ -64,6 +66,7 @@ public class RuneWordle : Minigame
     {
         Runes runePress = button.type;
         GuessRunes(runePress);
+
     }
 
     private void GuessRunes(Runes runePress)
@@ -72,6 +75,8 @@ public class RuneWordle : Minigame
         if (_count < 4)
         {
             _runeGuessSequence[_count] = runePress;
+            RuneSpriteChangerUI(GetRuneSprite(runePress));
+            _runeGuessSequenceImages[_count] = GetRuneSprite(runePress);
             _count++;
         }
         SubmitButtonCheck();
@@ -82,42 +87,47 @@ public class RuneWordle : Minigame
         //Debug.Log("respuesta enviada");
         ResetCount();
         RuneSequenceCorrection();
+        RuneTriesPanelChanger(_runeGuessSequenceImages);
         AnswerSequence();
+        RuneSpriteChangerReset();
+        SubmitButtonCheck();
     }
 
     private void AnswerSequence()
     {
-        
+
         if (!_rightAnswer)
         {
-            for (int i = 0; i < 4; i++)
+
+            if (_rightAnswerPositions[0] == 1 && _rightAnswerPositions[1] == 1 && _rightAnswerPositions[2] == 1 && _rightAnswerPositions[3] == 1)
             {
-                if (_rightAnswerPositions[i] == 1)
-                {
-                    _rightWord = true;
-                }
-                else
-                {
-                    _rightWord = false;
-                }
+                _rightWord = true;
+            }
+            else
+            {
+                _rightWord = false;
             }
 
-            if(!_rightWord )
+
+            if (!_rightWord)
             {
                 _rightAnswer = false;
-                Debug.Log("Aun nooooooooo");
+                _tryAttempt++;
             }
+
             if (_rightWord)
             {
                 _rightAnswer = true;
             }
-            
+
         }
 
-        if(_rightAnswer)
+        if (_rightAnswer)
         {
-            Debug.Log("Ganaste");
+            EndMinigame(true);
             _rightAnswer = false;
+            _tryAttempt = 0;
+            ResetTriesPanel();
         }
     }
 
@@ -130,6 +140,7 @@ public class RuneWordle : Minigame
                 if (_runeRandomSequence[i] == _runeGuessSequence[j])
                 {
                     _containsWord = true;
+                    break;
                 }
                 else
                 {
@@ -137,18 +148,62 @@ public class RuneWordle : Minigame
                 }
             }
 
-            if (_runeRandomSequence[i] == _runeGuessSequence[i] && _containsWord)
+            if (_runeRandomSequence[i] == _runeGuessSequence[i])
             {
                 _rightAnswerPositions[i] = 1;
             }
             else if (_runeRandomSequence[i] != _runeGuessSequence[i] && _containsWord)
             {
                 _rightAnswerPositions[i] = 2;
+                _containsWord = false;
             }
             else
             {
                 _rightAnswerPositions[i] = 0;
             }
+        }
+    }
+
+    private void RuneSpriteChangerUI(Sprite runeSprite)
+    {
+        if (_count < 4)
+        {
+            _guessPanel.RuneImages[_count].sprite = runeSprite;
+        }
+    }
+
+    private void RuneTriesPanelChanger(Sprite[] _trySprites)
+    {
+        if (_tryAttempt < 4)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                _triesPanel[_tryAttempt].RuneImages[i].sprite = _trySprites[i];
+
+
+                if (_rightAnswerPositions[i] == 0)
+                {
+                    _triesPanel[_tryAttempt].RuneImages[i].color = Color.red;
+                }
+                else if (_rightAnswerPositions[i] == 1)
+                {
+                    _triesPanel[_tryAttempt].RuneImages[i].color = Color.green;
+                }
+                else if (_rightAnswerPositions[i] == 2)
+                {
+                    _triesPanel[_tryAttempt].RuneImages[i].color = Color.yellow;
+                }
+            }
+        }
+
+
+    }
+
+    private void RuneSpriteChangerReset()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            _guessPanel.RuneImages[i].sprite = null;
         }
     }
 
@@ -162,6 +217,14 @@ public class RuneWordle : Minigame
         {
             _button.interactable = false;
         }
+
+        if (_tryAttempt == 4)
+        {
+            EndMinigame(false);
+            _rightAnswer = false;
+            _tryAttempt = 0;
+            ResetTriesPanel();
+        }
     }
 
     // Reset the submit button and count variable
@@ -169,13 +232,27 @@ public class RuneWordle : Minigame
     {
         _button.interactable = false;
         _count = 0;
+
+    }
+
+    private void ResetTriesPanel()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                _triesPanel[i].RuneImages[j].sprite = null;
+                _triesPanel[i].RuneImages[j].color = Color.white;
+            }
+
+        }
     }
 
     private Sprite GetRuneSprite(Runes runeType)
     {
-        for(int i = 0; i < _runesScriptables.Length; i++)
+        for (int i = 0; i < _runesScriptables.Length; i++)
         {
-            if(_runesScriptables[i].type == runeType)
+            if (_runesScriptables[i].type == runeType)
             {
                 return _runesScriptables[i].img;
             }
