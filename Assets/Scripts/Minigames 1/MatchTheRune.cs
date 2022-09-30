@@ -10,6 +10,8 @@ public class MatchTheRune : Minigame
     private List<MTRCell> _activeRunes = new List<MTRCell>();
     int _matchesCompleted = 0;
 
+    private bool _canClick = true;
+
     private void Start()
     {
         for(int i = 0; i < _gridCells.Length; i++)
@@ -25,6 +27,7 @@ public class MatchTheRune : Minigame
             _gridCells[i].RuneImage.gameObject.SetActive(false);
         }
 
+        _canClick = true;
         SetUpRunes();
         base.StartMinigame();
     }
@@ -55,6 +58,8 @@ public class MatchTheRune : Minigame
 
     public override void EndMinigame(bool minigameWon)
     {
+        _canClick = false;
+
         if(!minigameWon)
             StopAllCoroutines();
 
@@ -66,6 +71,9 @@ public class MatchTheRune : Minigame
 
     public void ActivateRune(MTRCell cell)
     {
+        if (!_canClick)
+            return;
+
         if(_activeRunes.Count < 2)
         {
             _activeRunes.Add(cell);

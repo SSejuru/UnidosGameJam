@@ -120,7 +120,9 @@ public class MiniGamesManager : MonoBehaviour
 
         _successPanel.transform.LeanScale(Vector2.zero, 0.5f).setEaseInBack();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.7f);
+
+        _successPanel.SetActive(false);
 
         AnimatePanelOut(_currentActiveMinigame.CanvasMinigame.transform);
 
