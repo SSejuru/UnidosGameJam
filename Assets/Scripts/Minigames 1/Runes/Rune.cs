@@ -7,4 +7,5 @@ public class Rune : ScriptableObject
 {
     public Runes type;
     public Sprite img;
+    public Sprite runeIcon;
 }

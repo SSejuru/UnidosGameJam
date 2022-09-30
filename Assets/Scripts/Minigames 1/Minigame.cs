@@ -10,8 +10,6 @@ public class Minigame : MonoBehaviour, IInteractable
 
     [Header("Minigame Data")]
     [SerializeField]
-    protected MinigameType _type;
-    [SerializeField]
     protected float _manaOnWin = 20;
     [SerializeField]
     protected float _timeToFinishMinigame = 30f;
@@ -41,8 +39,6 @@ public class Minigame : MonoBehaviour, IInteractable
     /// </summary>
     public virtual void StartMinigame()
     {
-        Debug.Log(_type + " minigame started"); // Debugs for dparty
-
         _canvasMinigame.SetActive(true);
         ManagerLocator.Instance._miniGamesManager.StartMinigame(this);
     }
@@ -52,8 +48,6 @@ public class Minigame : MonoBehaviour, IInteractable
     /// </summary>
     public virtual void EndMinigame(bool minigameWon)
     {
-        Debug.Log(_type + " minigame ended, Win status : " + minigameWon); // Debugs for dparty
-
         _isOnCooldown = true;      
 
         ManagerLocator.Instance._miniGamesManager.EndMinigameStatus(minigameWon);

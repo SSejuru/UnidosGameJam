@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   img: {fileID: 21300000, guid: 0c79652ba41e07a458555fcedc0d8e3e, type: 3}
+  runeIcon: {fileID: 21300000, guid: b92736d1b3a6a8943808a2c69716eb8b, type: 3}
