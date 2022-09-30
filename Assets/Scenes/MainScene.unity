@@ -6792,7 +6792,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7478438916980133073, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.80184937
+      value: -0.8019104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438916980133074, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5376679048749479466}
+    - target: {fileID: 7478438916980133074, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RuneBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438916994145158, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.49998474
       objectReference: {fileID: 0}
     - target: {fileID: 7478438917116521736, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_Name
@@ -6886,6 +6898,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7478438917127025503, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5376679048749479466}
+    - target: {fileID: 7478438917127025503, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RuneBtn
+      objectReference: {fileID: 0}
     - target: {fileID: 7478438917458898595, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6910,6 +6930,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7478438917661616173, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.2999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438917741522238, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438917741522239, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5376679048749479466}
+    - target: {fileID: 7478438917741522239, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RuneBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438917896617584, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5376679048749479466}
+    - target: {fileID: 7478438917896617584, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RuneBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438917896617599, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7478438917919185455, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6934,6 +6982,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7478438918077645987, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7478438918234681479, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6957,6 +7009,26 @@ PrefabInstance:
     - target: {fileID: 7478438918234681479, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438918269761841, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.040039062
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438918269761841, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.49996948
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438918818487924, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478438918818487925, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5376679048749479466}
+    - target: {fileID: 7478438918818487925, guid: 21116679a5dec434ebc9a6e4d6549c64, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RuneBtn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
