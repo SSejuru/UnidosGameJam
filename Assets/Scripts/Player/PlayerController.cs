@@ -22,6 +22,8 @@ public class PlayerController : LivingBeing
     public PlayerInteraction InteractionComp { get => _interactionComp; }
 
 
+    private const float STARTING_MANA_REGEN_RATE = 0.1f;
+
     private void Awake()
     {
         _interactionComp = GetComponent<PlayerInteraction>();
@@ -46,7 +48,13 @@ public class PlayerController : LivingBeing
         //_animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
         InitializeStats();
-        AddMana(20, false);
+        _manaRegenRate = 0f;
+    }
+
+    public void Initialize()
+    {
+        _manaRegenRate = STARTING_MANA_REGEN_RATE;
+        AddMana(0, false);
         ManagerLocator.Instance._uiManager.ManaPerSecondUIUpdate(_manaRegenRate);
     }
 
