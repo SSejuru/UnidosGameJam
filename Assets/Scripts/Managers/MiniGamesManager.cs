@@ -72,12 +72,14 @@ public class MiniGamesManager : MonoBehaviour
 
     private void TurnOffPanel()
     {
-        _currentActiveMinigame.CanvasMinigame.gameObject.SetActive(false);
+        _previousMinigame.CanvasMinigame.gameObject.SetActive(false);
 
         ManagerLocator.Instance._playerController.SetMovingStatus(true);
         ManagerLocator.Instance._uiManager.EnableSpellBarData(true);
         ManagerLocator.Instance._playerController.InteractionComp.ToggleInteraction(true);
-        ManagerLocator.Instance._playerController.AddMana(_previousMinigame.ManaOnWin);
+
+        if(_addMana)
+            ManagerLocator.Instance._playerController.AddMana(_previousMinigame.ManaOnWin);
     }
 
     public void EndMinigameStatus(bool status)
