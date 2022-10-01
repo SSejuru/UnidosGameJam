@@ -77,13 +77,13 @@ public class UIManager : MonoBehaviour
         _playerManaCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "+" + AddedMana.ToString("F0");
         yield return new WaitForEndOfFrame();
         _playerManaCanvas.alpha = 0;
-        _playerManaCanvas.LeanAlpha(1, 0.5f);
+        _playerManaCanvas.LeanAlpha(1, 0.2f);
+        ManagerLocator.Instance._soundManager.PlaySoundEffect(ENUM_SOUND.ManaGain);
+        yield return new WaitForSeconds(1f);
 
-        yield return new WaitForSeconds(1.5f);
+        _playerManaCanvas.LeanAlpha(0, 0.2f);
 
-        _playerManaCanvas.LeanAlpha(0, 0.5f);
-
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
 
         _playerManaCanvas.gameObject.SetActive(false);
 

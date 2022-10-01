@@ -6477,7 +6477,13 @@ MonoBehaviour:
   _backgroundMusic: {fileID: 2049178243}
   _playerClick: {fileID: 1903288189}
   _soundFX: {fileID: 2063774084}
-  _gameSounds: []
+  _gameSounds:
+  - audioClip: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
+    sound: 0
+  - audioClip: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+    sound: 1
+  - audioClip: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
+    sound: 2
 --- !u!4 &934116495
 Transform:
   m_ObjectHideFlags: 0

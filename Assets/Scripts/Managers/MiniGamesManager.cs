@@ -28,6 +28,7 @@ public class MiniGamesManager : MonoBehaviour
     private float _currentTimer = 0;
 
     private bool _activeTimer = false;
+    private bool _addMana = false;
 
     private Vector2 _startTimerPosition = Vector2.zero;
 
@@ -82,6 +83,7 @@ public class MiniGamesManager : MonoBehaviour
     public void EndMinigameStatus(bool status)
     {
         _previousMinigame = _currentActiveMinigame;
+        _addMana = status;
         StartCoroutine(ShowFinalPanel(status));
         _activeTimer = false;
         _timer.transform.LeanScale(Vector2.zero, 0.5f).setEaseInBack();
@@ -112,6 +114,8 @@ public class MiniGamesManager : MonoBehaviour
             _successPanel.GetComponent<Image>().sprite = _sucessSprite;
         else
             _successPanel.GetComponent<Image>().sprite = _failSprite;
+
+        ManagerLocator.Instance._soundManager.PlaySoundEffect(value ? ENUM_SOUND.Success : ENUM_SOUND.Failed);
 
         _successPanel.transform.localScale = Vector2.zero;
         _successPanel.transform.LeanScale(Vector2.one, 0.5f);
