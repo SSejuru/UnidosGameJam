@@ -46,7 +46,7 @@ public class PlayerController : LivingBeing
         //_animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
         InitializeStats();
-        AddMana(20);
+        AddMana(20, false);
         ManagerLocator.Instance._uiManager.ManaPerSecondUIUpdate(_manaRegenRate);
     }
 
@@ -72,15 +72,16 @@ public class PlayerController : LivingBeing
         }
     }
 
-    public void AddMana(float manaPoints)
+    public void AddMana(float manaPoints, bool displayAnimation = true)
     {
         _currentMana += manaPoints;
 
         Mathf.Clamp(_currentMana, 0, _maxMana);
 
         ManagerLocator.Instance._uiManager.UIManaUpdate(_currentMana);
-        ManagerLocator.Instance._uiManager.DisplayManaAnimation(manaPoints);
 
+        if (displayAnimation)
+            ManagerLocator.Instance._uiManager.DisplayManaAnimation(manaPoints);
     }
 
     public void AddManaRegenRate(float rate)

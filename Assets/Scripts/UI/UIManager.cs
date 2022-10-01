@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [Header("Player Canvas")]
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private CanvasGroup _playerManaCanvas;
 
     [Header("Player Data")]
     [SerializeField] private TextMeshProUGUI _playerManaValue;
@@ -67,7 +68,26 @@ public class UIManager : MonoBehaviour
 
     public void DisplayManaAnimation(float AddedMana)
     {
+        StartCoroutine(ShowManaAnimation(AddedMana));
+    }
 
+    private IEnumerator ShowManaAnimation(float AddedMana)
+    {
+        _playerManaCanvas.gameObject.SetActive(true);
+        _playerManaCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "+" + AddedMana.ToString("F0");
+        yield return new WaitForEndOfFrame();
+        _playerManaCanvas.alpha = 0;
+        _playerManaCanvas.LeanAlpha(1, 0.5f);
+
+        yield return new WaitForSeconds(1.5f);
+
+        _playerManaCanvas.LeanAlpha(0, 0.5f);
+
+        yield return new WaitForSeconds(0.7f);
+
+        _playerManaCanvas.gameObject.SetActive(false);
+
+        yield return null;
     }
 
     public void UIManaUpdate(float playerMana)
@@ -78,7 +98,7 @@ public class UIManager : MonoBehaviour
             _uiSpells[i].UpdateStatus(playerMana);
         }
 
-        _playerManaValue.text = playerMana.ToString("F0");
+        _playerManaValue.text = playerMana.ToString("F0");     
     }
 
     public void ManaPerSecondUIUpdate(float mps)

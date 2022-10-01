@@ -27,4 +27,5 @@ public class ManagerLocator
     public SpellManager _spellManager;
     public UIManager _uiManager;
     public MiniGamesManager _miniGamesManager;
+    public SoundManager _soundManager;
 }
