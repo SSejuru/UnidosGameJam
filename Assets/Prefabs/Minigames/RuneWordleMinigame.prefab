@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasMinigame: {fileID: 0}
-  _type: 0
   _manaOnWin: 40
   _timeToFinishMinigame: 30
   _cooldownTimer: 10
@@ -110,6 +109,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e5ca5782f96458d4b903e551b066c147, type: 2}
   - {fileID: 11400000, guid: 08e3ac4af2155fc40b9078e73a429c7d, type: 2}
   - {fileID: 11400000, guid: 41645fc2bee9bea4098d710e6805bf27, type: 2}
+  _emptySprite: {fileID: 21300000, guid: a290427086bb43e4a8680e07804507b8, type: 3}
   _button: {fileID: 0}
   _guessPanel: {fileID: 0}
   _triesPanel:

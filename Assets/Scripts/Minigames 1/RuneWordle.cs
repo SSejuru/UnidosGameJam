@@ -20,6 +20,8 @@ public class RuneWordle : Minigame
     [Space(10)]
 
     [SerializeField]
+    private Sprite _emptySprite;
+    [SerializeField]
     private Button _button;
     [SerializeField]
     private RunePanel _guessPanel;
@@ -203,7 +205,7 @@ public class RuneWordle : Minigame
     {
         for (int i = 0; i < 4; i++)
         {
-            _guessPanel.RuneImages[i].sprite = null;
+            _guessPanel.RuneImages[i].sprite = _emptySprite;
         }
     }
 
@@ -241,7 +243,7 @@ public class RuneWordle : Minigame
         {
             for (int j = 0; j < 4; j++)
             {
-                _triesPanel[i].RuneImages[j].sprite = null;
+                _triesPanel[i].RuneImages[j].sprite = _emptySprite;
                 _triesPanel[i].RuneImages[j].color = Color.white;
             }
 
