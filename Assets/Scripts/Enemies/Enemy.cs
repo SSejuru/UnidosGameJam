@@ -14,7 +14,6 @@ public class Enemy : LivingBeing
 {
     [Header("Enemy Data")]
     [SerializeField] private LayerMask _searchMask;
-    [SerializeField] private Animator _animator;
     [SerializeField] private float _searchRadius = 20f;
 
     private GameObject _target;

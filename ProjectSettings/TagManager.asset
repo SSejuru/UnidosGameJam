@@ -53,3 +53,6 @@ TagManager:
   - name: MinigameCanvas
     uniqueID: 4123718089
     locked: 0
+  - name: MainMenu
+    uniqueID: 2522601093
+    locked: 0

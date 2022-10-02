@@ -8,6 +8,8 @@ public enum ENUM_SOUND
     Failed,
     ManaGain,
     SpellCast,
+    ShowRuneSymbol,
+    HideRuneSymbol
 }
 
 public class SoundManager : MonoBehaviour

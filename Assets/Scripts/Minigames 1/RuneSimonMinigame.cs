@@ -55,8 +55,12 @@ public class RuneSimonMinigame : Minigame
     {
         _getReadyText.SetActive(true);
         _getReadyText.GetComponent<TextMeshProUGUI>().text = GET_READY_TEXT;
+        ManagerLocator.Instance._soundManager.PlaySoundEffect(ENUM_SOUND.ShowRuneSymbol);
+
         yield return new WaitForSeconds(2);
         _getReadyText.SetActive(false);
+        ManagerLocator.Instance._soundManager.PlaySoundEffect(ENUM_SOUND.HideRuneSymbol);
+
         yield return new WaitForSeconds(1f);
 
 
@@ -64,13 +68,18 @@ public class RuneSimonMinigame : Minigame
         {
             _messageImage.enabled = true;
             _messageImage.sprite = _answer[i].runeIcon;
+            ManagerLocator.Instance._soundManager.PlaySoundEffect(ENUM_SOUND.ShowRuneSymbol);
             yield return new WaitForSeconds(1f);
             _messageImage.enabled = false;
+            ManagerLocator.Instance._soundManager.PlaySoundEffect(ENUM_SOUND.HideRuneSymbol);
+
             yield return new WaitForSeconds(1f);
         }
         _getReadyText.SetActive(true);
         _getReadyText.GetComponent<TextMeshProUGUI>().text = USE_SEQUENCE;
         SetButtonInteractions(true);
+        ManagerLocator.Instance._soundManager.PlaySoundEffect(ENUM_SOUND.ShowRuneSymbol);
+
 
 
         yield return null;

@@ -15,7 +15,8 @@ public class LivingBeing : MonoBehaviour
     [SerializeField] protected float _attackDamage = 10f;
     [SerializeField] protected float _attackDistance = 10f;
 
-    private SpriteRenderer _spriteRenderer;
+    protected SpriteRenderer _spriteRenderer;
+    protected Animator _animator;
 
     protected float _currentHealth;
     protected bool _isDead = false;
@@ -29,6 +30,7 @@ public class LivingBeing : MonoBehaviour
     protected void InitializeStats()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
         _currentHealth = _maxHealth;     
     }
 
