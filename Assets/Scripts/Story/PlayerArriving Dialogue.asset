@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89baa687322c76d42a4e2a9210dc9887, type: 3}
+  m_Name: PlayerArriving Dialogue
+  m_EditorClassIdentifier: 
+  _dialogue:
+  - character: {fileID: 11400000, guid: afe2226fc383f2c4fa5c670710063d96, type: 2}
+    sentences:
+    - Hello everyone! It seems I arrived just in time
+  - character: {fileID: 11400000, guid: 4e29b028412b1bc478172698823c883f, type: 2}
+    sentences:
+    - Oh great! A horde of enemies will arrive at any second, we need your support
+      magic to help us survive against them!
+  - character: {fileID: 11400000, guid: 5cfb8d0569cff9a4f945f940c6da241c, type: 2}
+    sentences:
+    - Wait, how do we know you are the real deal? how can you cast sacred magic?
+  - character: {fileID: 11400000, guid: 4e29b028412b1bc478172698823c883f, type: 2}
+    sentences:
+    - some people say support mages communicate with gods in their language to cast
+      their powers!
+  - character: {fileID: 11400000, guid: 5cfb8d0569cff9a4f945f940c6da241c, type: 2}
+    sentences:
+    - The language of the gods?
+    - Do you mean.....
+    - SPANISH?
+  - character: {fileID: 11400000, guid: 4e29b028412b1bc478172698823c883f, type: 2}
+    sentences:
+    - 'Exactly! '
+    - Gods speak spanish, mortals speak english
+  - character: {fileID: 11400000, guid: 5cfb8d0569cff9a4f945f940c6da241c, type: 2}
+    sentences:
+    - 'Oh Wow... '
+    - Ok, enough chatting we need to get ready!

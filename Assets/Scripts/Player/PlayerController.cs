@@ -19,13 +19,14 @@ public class PlayerController : LivingBeing
 
     private PlayerInteraction _interactionComp;
     public PlayerInteraction InteractionComp { get => _interactionComp; }
+    public bool CanMove { get => _canMove; set => _canMove = value; }
 
-
-    private const float STARTING_MANA_REGEN_RATE = 0.1f;
+    private float STARTING_MANA_REGEN_RATE;
 
     private void Awake()
     {
         _interactionComp = GetComponent<PlayerInteraction>();
+        STARTING_MANA_REGEN_RATE = _manaRegenRate;
     }
 
     public void SetMovingStatus(bool canMove)
@@ -61,6 +62,7 @@ public class PlayerController : LivingBeing
     {
         CheckForManaRegen();
         MovePlayer();
+        AnimatePlayer();
     }
 
     protected void CheckForManaRegen()
@@ -96,6 +98,10 @@ public class PlayerController : LivingBeing
         ManagerLocator.Instance._uiManager.ManaPerSecondUIUpdate(_manaRegenRate);
     }
 
+    private void AnimatePlayer()
+    {
+        _animator.SetBool("IsMoving", _rigidBody.velocity.magnitude > 0);
+    }
 
     private void MovePlayer()
     {
@@ -124,8 +130,7 @@ public class PlayerController : LivingBeing
         }
 
         direction.Normalize();
-        _animator.SetBool("IsMoving", direction.magnitude > 0);
-
+        
         _rigidBody.velocity = _movementSpeed * direction;
     }
 }

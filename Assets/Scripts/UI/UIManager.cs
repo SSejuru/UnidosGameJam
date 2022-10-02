@@ -43,6 +43,11 @@ public class UIManager : MonoBehaviour
         HideSpellBookDescription();
     }
 
+    public void StartGame()
+    {
+        _playerUIContainer.SetActive(true);
+    }
+
 
     public void ToggleSettingsPanel()
     {

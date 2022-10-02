@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89baa687322c76d42a4e2a9210dc9887, type: 3}
+  m_Name: Final Dialogue
+  m_EditorClassIdentifier: 
+  _dialogue:
+  - character: {fileID: 11400000, guid: 5cfb8d0569cff9a4f945f940c6da241c, type: 2}
+    sentences:
+    - I hope you understood what Carlos said...
+    - BECAUSE ENEMIES ARE COMING!!!
+    - GET READY FOR BATTLE!
+  - character: {fileID: 11400000, guid: 4e29b028412b1bc478172698823c883f, type: 2}
+    sentences:
+    - Ok ok ok ok ok ok
+    - We are counting on you!
+    - If we all die they will attack the kingdom next, and you will lose
+    - If we survive until they stop coming, we win
+  - character: {fileID: 11400000, guid: afe2226fc383f2c4fa5c670710063d96, type: 2}
+    sentences:
+    - How do I keep track of my score?
+  - character: {fileID: 11400000, guid: 4e29b028412b1bc478172698823c883f, type: 2}
+    sentences:
+    - Score?
+    - 'What are you talking about? '
+    - 'This is not a game! '
+    - We win or lose, that's all!
+    - now...
+    - LETS DEFEND OUR KINGDOM!!!
