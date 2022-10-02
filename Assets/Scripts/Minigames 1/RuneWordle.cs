@@ -92,9 +92,11 @@ public class RuneWordle : Minigame
         //RuneTriesPanelChanger(_runeGuessSequenceImages);
         RuneSpriteChangerReset();
         AnswerSequence();
+        TryAttemptCheck();
         SubmitButtonCheck();
     }
 
+    //Analize the game and finish it if the conditions are met if not add a try attempt
     private void AnswerSequence()
     {
 
@@ -129,11 +131,21 @@ public class RuneWordle : Minigame
 
                 for (int j = 0; j < 4; j++)
                 {
-                    if (_runeRandomSequence[i] == _runeGuessSequence[j])
+                    if (_runeRandomSequence[j] == _runeGuessSequence[i])
                     {
-                        _containsWord = ColorAnswerCheck(j);
+                        if (_runeRandomSequence[j] == _runeGuessSequence[j])
+                        {
+                            _rightAnswerPositions[i] = 0;
+                            _triesPanel[_tryAttempt].RuneImages[i].color = Color.red;
+                        }
+                        else
+                        {
+                            _containsWord = true;
+                            //_containsWord = ColorAnswerCheck(j);
+                        }
+
                     }
-                    
+
                 }
                 if (_containsWord)
                 {
@@ -153,33 +165,33 @@ public class RuneWordle : Minigame
 
     }
 
-    private bool ColorAnswerCheck(int positionInArray)
-    {
-        if(positionInArray == 0)
-        {
-            if (_rightAnswerPositions[0] == 1 || _rightAnswerPositions[0] == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        for (int a = 0; a < positionInArray; a++)
-        {
-            if (_rightAnswerPositions[a] == 1 || _rightAnswerPositions[a] == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+    //private bool ColorAnswerCheck(int positionInArray)
+    //{
+    //    if(positionInArray == 0)
+    //    {
+    //        if (_rightAnswerPositions[0] == 1 || _rightAnswerPositions[0] == 0)
+    //        {
+    //            return false;
+    //        }
+    //        else
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //    for (int a = 0; a < positionInArray; a++)
+    //    {
+    //        if (_rightAnswerPositions[a] == 1 || _rightAnswerPositions[a] == 0)
+    //        {
+    //            return false;
+    //        }
+    //        else
+    //        {
+    //            return true;
+    //        }
+    //    }
 
-        return false;
-    }
+    //    return false;
+    //}
 
     private void RuneSpriteChangerUI(Sprite runeSprite)
     {
@@ -229,18 +241,22 @@ public class RuneWordle : Minigame
 
     private void SubmitButtonCheck()
     {
-        if (_tryAttempt < 4)
+
+        if (_count == 4)
         {
-            if (_count == 4)
-            {
-                _button.interactable = true;
-            }
-            else
-            {
-                _button.interactable = false;
-            }
+            _button.interactable = true;
         }
         else
+        {
+            _button.interactable = false;
+        }
+
+
+    }
+
+    private void TryAttemptCheck()
+    {
+        if (_tryAttempt == 4)
         {
             EndMinigame(false);
             _tryAttempt = 0;
