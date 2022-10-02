@@ -5,6 +5,14 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Game Panels")]
+    [SerializeField]
+    private GameObject _playerUIContainer;
+    [SerializeField] private GameObject _settingsPanel;
+    [SerializeField] private GameObject _mainMenuContainer;
+
+    [Space(10)]
+
     [Header("Player Canvas")]
     [SerializeField] private Canvas _canvas;
     [SerializeField] private CanvasGroup _playerManaCanvas;
@@ -27,10 +35,58 @@ public class UIManager : MonoBehaviour
     private List<SpellUI> _uiSpells = new List<SpellUI>();
 
     private bool _isDescriptionPanelActive = false;
+    private bool _isSettingsPanelActive = false;
+    private bool _isAnimating = false;
 
     private void Start()
     {
         HideSpellBookDescription();
+    }
+
+
+    public void ToggleSettingsPanel()
+    {
+        if (_isAnimating)
+            return;
+
+        _isSettingsPanelActive = !_isSettingsPanelActive;
+
+        if (_isSettingsPanelActive)
+        {
+            _settingsPanel.SetActive(true);
+            ShowPanelSlide(_settingsPanel);
+        }
+        else
+        {
+            HidePanelSlide(_settingsPanel);
+            StartCoroutine(DeactivateObjectAfterSeconds(_settingsPanel, 0.5f));
+        }
+    }
+
+    private IEnumerator DeactivateObjectAfterSeconds(GameObject obj, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);   
+        obj.SetActive(false);
+    }
+
+    private void ShowPanelSlide(GameObject obj)
+    {
+        _isAnimating = true;
+        Transform panelTransform = obj.transform;
+        panelTransform.localPosition = new Vector2(0, -Screen.height);
+        panelTransform.LeanMoveLocalY(0, 0.5f).setOnComplete(StopAnimating).setEaseOutExpo().delay = 0.1f;
+    }
+
+    private void HidePanelSlide(GameObject obj)
+    {
+        _isAnimating = true;
+        Transform panelTransform = obj.transform;
+        panelTransform.LeanMoveLocalY(-Screen.height, 0.5f).setEaseInExpo().setOnComplete(StopAnimating);
+    }
+
+    private void StopAnimating()
+    {
+        _isAnimating = false;
     }
 
     public void ToggleSpellBookDescriptionPanel()

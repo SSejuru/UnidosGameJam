@@ -46,6 +46,7 @@ public class RuneWordle : Minigame
     public override void StartMinigame()
     {
         RandomRuneSequence();
+        ResetTriesPanel();
         _button.interactable = false;
         base.StartMinigame();
     }
@@ -105,7 +106,6 @@ public class RuneWordle : Minigame
 
             EndMinigame(true);
             _tryAttempt = 0;
-            ResetTriesPanel();
         }
         else
         {
@@ -165,33 +165,6 @@ public class RuneWordle : Minigame
 
     }
 
-    //private bool ColorAnswerCheck(int positionInArray)
-    //{
-    //    if(positionInArray == 0)
-    //    {
-    //        if (_rightAnswerPositions[0] == 1 || _rightAnswerPositions[0] == 0)
-    //        {
-    //            return false;
-    //        }
-    //        else
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //    for (int a = 0; a < positionInArray; a++)
-    //    {
-    //        if (_rightAnswerPositions[a] == 1 || _rightAnswerPositions[a] == 0)
-    //        {
-    //            return false;
-    //        }
-    //        else
-    //        {
-    //            return true;
-    //        }
-    //    }
-
-    //    return false;
-    //}
 
     private void RuneSpriteChangerUI(Sprite runeSprite)
     {
@@ -201,34 +174,7 @@ public class RuneWordle : Minigame
         }
     }
 
-    //private void RuneTriesPanelChanger(Sprite[] _trySprites)
-    //{
-    //    if (_tryAttempt < 4)
-    //    {
-    //        for (int i = 0; i < 4; i++)
-    //        {
-    //            _triesPanel[_tryAttempt].RuneImages[i].sprite = _trySprites[i];
-
-
-    //            if (_rightAnswerPositions[i] == 0)
-    //            {
-    //                _triesPanel[_tryAttempt].RuneImages[i].color = Color.red;
-    //            }
-    //            else if (_rightAnswerPositions[i] == 1)
-    //            {
-    //                _triesPanel[_tryAttempt].RuneImages[i].color = Color.green;
-    //            }
-    //            else if (_rightAnswerPositions[i] == 2)
-    //            {
-    //                _triesPanel[_tryAttempt].RuneImages[i].color = Color.yellow;
-    //            }
-    //            else
-    //            {
-    //                _triesPanel[_tryAttempt].RuneImages[i].color = Color.yellow;
-    //            }
-    //        }
-    //    }
-    //}
+   
 
     private void RuneSpriteChangerReset()
     {
