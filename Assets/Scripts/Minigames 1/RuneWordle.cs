@@ -45,6 +45,7 @@ public class RuneWordle : Minigame
 
     public override void StartMinigame()
     {
+        _tryAttempt = 0;
         RandomRuneSequence();
         ResetTriesPanel();
         _button.interactable = false;
