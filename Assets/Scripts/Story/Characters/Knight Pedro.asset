@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Knight Pedro
   m_EditorClassIdentifier: 
   characterName: Knight Pedro
-  sprite: {fileID: 21300000, guid: 4fa0b5f5d8788bc499c641acea54300c, type: 3}
+  sprite: {fileID: 21300000, guid: bb294021168dddf419955ae9660411bd, type: 3}

@@ -173,13 +173,4 @@ public class UIManager : MonoBehaviour
         _spellBookButton.gameObject.SetActive(value);
     }
 
-    public void UIHealthUpdate(float instigatorHealth, LivingBeing instigator)
-    {
-        //Update Health in UI
-    }
-
-    public void UIShieldUpdate(float currentShield, LivingBeing instigator)
-    {
-        //Update shield in UI
-    }
 }

@@ -11,7 +11,8 @@ public enum ENUM_SOUND
     ManaGain,
     SpellCast,
     ShowRuneSymbol,
-    HideRuneSymbol
+    HideRuneSymbol,
+    DialogueLetter
 }
 
 public class SoundManager : MonoBehaviour
@@ -55,8 +56,9 @@ public class SoundManager : MonoBehaviour
     public void PlaySoundEffect(ENUM_SOUND soundToPlay)
     {
         _soundFX.clip = GetClipFromEnum(soundToPlay);
+        _soundFX.volume = GetVolumeFromEnum(soundToPlay);
 
-        if(_soundFX.clip)
+        if (_soundFX.clip)
             _soundFX.Play();
     }
 
@@ -69,6 +71,17 @@ public class SoundManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    private float GetVolumeFromEnum(ENUM_SOUND sound)
+    {
+        for (int i = 0; i < _gameSounds.Count; i++)
+        {
+            if (_gameSounds[i].sound == sound)
+                return _gameSounds[i].volume;
+        }
+
+        return 0;
     }
 
     public void SetBackgroundMusicLevel(float sliderValue)

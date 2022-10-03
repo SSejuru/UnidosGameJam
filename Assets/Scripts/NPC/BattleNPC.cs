@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum NPCState
 {
@@ -12,6 +13,13 @@ public enum NPCState
 
 public class BattleNPC : LivingBeing
 {
+    [Space(10)]
+    [Header("Health Bar")]
+    [SerializeField] private GameObject _healthBarContainer;
+    [SerializeField] private Image _healthBarImage;
+    [SerializeField] private Image _shieldBarImage;
+
+
     [SerializeField]
     private LayerMask _enemyMask;
     private NPCState _currentState;
@@ -38,6 +46,11 @@ public class BattleNPC : LivingBeing
     {
         CheckForEnemies();
         Attack();
+    }
+
+    public void ToggleHealthBar(bool value)
+    {
+        _healthBarContainer.SetActive(value);
     }
 
 
@@ -102,12 +115,21 @@ public class BattleNPC : LivingBeing
             _currentTime = _attackTimer;
 
             //Attack and check for state change
-            _enemy.GetComponent<LivingBeing>().ApplyDamage(_attackDamage);
+            _animator.SetBool("isAttacking", true);
 
-            if (_enemy.GetComponent<LivingBeing>().IsDead)
-            {
-                SetState(NPCState.Idle);
-            }
+            
+        }
+    }
+
+    private void InflictDamage()
+    {
+        _enemy.GetComponent<LivingBeing>().ApplyDamage(_attackDamage);
+        _animator.SetBool("isAttacking", false);
+
+
+        if (_enemy.GetComponent<LivingBeing>().IsDead)
+        {
+            SetState(NPCState.Idle);
         }
     }
 

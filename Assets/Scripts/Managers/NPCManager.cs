@@ -41,4 +41,12 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    public void ToggleAllNPCSHealthBar(bool value)
+    {
+        for (int i = 0; i < _activeNPCs.Count; i++)
+        {
+            _activeNPCs[i].ToggleHealthBar(value);
+        }
+    }
+
 }

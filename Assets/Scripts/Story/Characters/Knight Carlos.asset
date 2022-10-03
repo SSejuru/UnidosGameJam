@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Knight Carlos
   m_EditorClassIdentifier: 
   characterName: Knight Carlos
-  sprite: {fileID: 21300000, guid: 2d870fdff34852d43b68f6b25e261272, type: 3}
+  sprite: {fileID: 21300000, guid: 88b5f07d2480b4c4995793bdadc50e63, type: 3}

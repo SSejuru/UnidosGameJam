@@ -42,6 +42,8 @@ public class StoryManager : MonoBehaviour
     private bool _isSkipping = false;
     private PlayerController _playerController;
 
+    private IEnumerator _sentenceDrawingCoroutine;
+
     private Vector2 _playerStartPosition = new Vector2(0.03f, 7.82f);
 
 
@@ -53,6 +55,8 @@ public class StoryManager : MonoBehaviour
 
     public void StartGame()
     {
+        ManagerLocator.Instance._npcManager.ToggleAllNPCSHealthBar(false);
+
         foreach(Button button in _menuButtons)
         {
             button.interactable = false;
@@ -103,6 +107,7 @@ public class StoryManager : MonoBehaviour
         _skipButton.gameObject.SetActive(false);
         _fadeToBlackPanel.LeanAlpha(1, 1);
         yield return new WaitForSeconds(1);
+        ManagerLocator.Instance._npcManager.ToggleAllNPCSHealthBar(true);
         _playerController.gameObject.SetActive(true);
         yield return new WaitForEndOfFrame();
         ManagerLocator.Instance._uiManager.StartGame();
@@ -166,6 +171,9 @@ public class StoryManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        if(_sentenceDrawingCoroutine != null)
+            StopCoroutine(_sentenceDrawingCoroutine);
+
         if(_dialogueSentences.Count == 0)
         {
             EndDialogue();
@@ -173,7 +181,21 @@ public class StoryManager : MonoBehaviour
         }
 
         string sentence = _dialogueSentences.Dequeue();
-        _dialogueText.text = sentence;
+        _sentenceDrawingCoroutine = AnimateSentence(sentence);
+        StartCoroutine(_sentenceDrawingCoroutine);
+    }
+
+    IEnumerator AnimateSentence(string sentence)
+    {
+        _dialogueText.text = "";
+
+        foreach(char letter in sentence)
+        {
+            _dialogueText.text += letter;
+            ManagerLocator.Instance._soundManager.PlaySoundEffect(ENUM_SOUND.DialogueLetter);
+            yield return new WaitForSeconds(0.04f);
+        }
+
     }
 
     private void EndDialogue()

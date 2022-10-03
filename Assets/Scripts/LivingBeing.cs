@@ -18,6 +18,7 @@ public class LivingBeing : MonoBehaviour
     protected SpriteRenderer _spriteRenderer;
     protected Animator _animator;
 
+    protected float _maxShield;
     protected float _currentHealth;
     protected bool _isDead = false;
 
@@ -50,11 +51,7 @@ public class LivingBeing : MonoBehaviour
             _shieldHealth = 0;
         }    
 
-        Mathf.Clamp(_currentHealth, 0 , _maxHealth);
-
-        ManagerLocator.Instance._uiManager.UIHealthUpdate(_currentHealth, this);
-        ManagerLocator.Instance._uiManager.UIShieldUpdate(_shieldHealth, this);
-
+        Mathf.Clamp(_currentHealth, 0 , _maxHealth);    
 
         //Check if died
         if (_currentHealth <= 0)
@@ -69,15 +66,12 @@ public class LivingBeing : MonoBehaviour
         _currentHealth += heal;
 
         if (_currentHealth > _maxHealth)
-            _currentHealth = _maxHealth;
-
-        ManagerLocator.Instance._uiManager.UIHealthUpdate(_currentHealth, this);
+            _currentHealth = _maxHealth;     
     }
 
     public void GiveShield(float shield)
     {
-        _shieldHealth += shield;
-        ManagerLocator.Instance._uiManager.UIShieldUpdate(_shieldHealth, this);
+        _shieldHealth += shield;      
     }
 
     public void IncreaseAttackSpeed(float attack)
