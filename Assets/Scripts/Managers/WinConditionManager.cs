@@ -8,6 +8,10 @@ public class WinConditionManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private CanvasGroup _fadeToBlackPanel;
     [SerializeField] private GameObject _panelVictory;
+    [SerializeField] private Sprite _panelVictorySprite;
+    [SerializeField] private Sprite _panelDefeatSprite;
+    [SerializeField] private GameObject _buttonBackToMenu;
+
 
     [Header("Data")]
     [SerializeField] public float _startgameTime;
@@ -74,6 +78,21 @@ public class WinConditionManager : MonoBehaviour
     private void ShowFinalScreenPanel()
     {
         //Mostrar panel de victoria o derrota segun un booleano (didplayerwin)
-        
+        if (_didPlayerWin)
+        {
+            _panelVictory.GetComponent<Image>().sprite = _panelVictorySprite;
+        }else
+        {
+            _panelVictory.GetComponent<Image>().sprite= _panelDefeatSprite;
+        }
+
+        _panelVictory.SetActive(true);
+        ManagerLocator.Instance._uiManager.ShowPanelSlide(_panelVictory);
+        Invoke("ActivateButton", 1);
+    }
+
+    private void ActivateButton()
+    {
+        _buttonBackToMenu.SetActive(true);
     }
 }

@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         obj.SetActive(false);
     }
 
-    private void ShowPanelSlide(GameObject obj)
+    public void ShowPanelSlide(GameObject obj)
     {
         _isAnimating = true;
         Transform panelTransform = obj.transform;
@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
         panelTransform.LeanMoveLocalY(0, 0.5f).setOnComplete(StopAnimating).setEaseOutExpo().delay = 0.1f;
     }
 
-    private void HidePanelSlide(GameObject obj)
+    public void HidePanelSlide(GameObject obj)
     {
         _isAnimating = true;
         Transform panelTransform = obj.transform;
