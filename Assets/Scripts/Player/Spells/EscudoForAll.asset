@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df46c315b54b6c54c8791bbe0e0fb5af, type: 3}
   m_Name: EscudoForAll
   m_EditorClassIdentifier: 
-  spellEffect: 4
+  spellEffect: 3
   spellTarget: 1
   spellAmmount: 30
   spellCost: 90

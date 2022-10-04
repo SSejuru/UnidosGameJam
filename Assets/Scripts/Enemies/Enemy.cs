@@ -129,16 +129,26 @@ public class Enemy : LivingBeing
         else
         {
             _currentTime = _attackTimer;
-            
-            //Attack and check for state change
-            _target.GetComponent<LivingBeing>().ApplyDamage(_attackDamage);
 
-            if (_target.GetComponent<LivingBeing>().IsDead)
-            {
-                SetState(EnemyState.SearchingTarget);
-            }
+            //Attack and check for state change
+            _animator.SetBool("isAttacking", true);
         }
     }  
+
+    public void InflictDamage()
+    {
+        _target.GetComponent<LivingBeing>().ApplyDamage(_attackDamage);
+
+        if (_target.GetComponent<LivingBeing>().IsDead)
+        {
+            SetState(EnemyState.SearchingTarget);
+        }
+    }
+
+    public void EndAtackAnim()
+    {
+        _animator.SetBool("isAttacking", false);
+    }
 
     private void OnDrawGizmosSelected()
     {
@@ -152,6 +162,8 @@ public class Enemy : LivingBeing
         _rigidBody.isKinematic = false;
         _rigidBody.velocity = Vector2.zero;
 
+        bool isMoving = false;
+
         //Execute animation for each
         switch (state)
         {
@@ -160,6 +172,7 @@ public class Enemy : LivingBeing
                 _currentTime = 0f;
                 break;
             case EnemyState.Moving:
+                isMoving = true;
                 break;
             case EnemyState.Attacking:
                 _currentTime = _attackTimer;
@@ -168,11 +181,15 @@ public class Enemy : LivingBeing
                 _rigidBody.isKinematic = true;
                 break;
         }
+
+        _animator.SetBool("isMoving", isMoving);
     }
 
     public override void Die()
     {
         SetState(EnemyState.Dead);
+        _animator.SetBool("isAttacking", false);
+        _animator.SetBool("isMoving", false);
         ManagerLocator.Instance._enemiesManager.RemoveEnemyFromList(this);
         base.Die();
     }

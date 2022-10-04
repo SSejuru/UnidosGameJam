@@ -158,13 +158,17 @@ public class BattleNPC : LivingBeing
     private void InflictDamage()
     {
         _enemy.GetComponent<LivingBeing>().ApplyDamage(_attackDamage);
-        _animator.SetBool("isAttacking", false);
-
 
         if (_enemy.GetComponent<LivingBeing>().IsDead)
         {
             SetState(NPCState.Idle);
         }
+    }
+
+
+    public void EndAtackAnim()
+    {
+        _animator.SetBool("isAttacking", false);
     }
 
     private void SetState(NPCState state)
