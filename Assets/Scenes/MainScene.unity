@@ -21001,7 +21001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fadeToBlackPanel: {fileID: 2026932530}
-  _StartgameTime: 0
+  _panelVictory: {fileID: 0}
+  _startgameTime: 4
 --- !u!1 &2003262420
 GameObject:
   m_ObjectHideFlags: 0
