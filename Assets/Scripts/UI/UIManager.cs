@@ -135,7 +135,8 @@ public class UIManager : MonoBehaviour
     private IEnumerator ShowManaAnimation(float AddedMana)
     {
         _playerManaCanvas.gameObject.SetActive(true);
-        _playerManaCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "+" + AddedMana.ToString("F0");
+        string addedText = AddedMana >= 0 ? "+" + AddedMana.ToString("F0") : AddedMana.ToString("F0");
+        _playerManaCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = addedText;
         yield return new WaitForEndOfFrame();
         _playerManaCanvas.alpha = 0;
         _playerManaCanvas.LeanAlpha(1, 0.2f);

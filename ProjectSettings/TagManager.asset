@@ -47,6 +47,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PlayerWorldCanvas
+    uniqueID: 2886285641
+    locked: 0
   - name: PlayerUICanvas
     uniqueID: 2660717887
     locked: 0

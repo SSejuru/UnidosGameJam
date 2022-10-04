@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SpellUI : MonoBehaviour
+public class SpellUI : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     private Spell _magicSpell;
@@ -63,5 +64,10 @@ public class SpellUI : MonoBehaviour
                 ManagerLocator.Instance._spellManager.CastSpell(_magicSpell);
             }
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        TryCast();
     }
 }

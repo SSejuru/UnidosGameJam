@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class SpellManager : MonoBehaviour
 {
+    [SerializeField] private CinemachineVirtualCamera _playerCamera;
+
+    private const float SHAKE_TIMER = 1f;
+    private const float SHAKE_INTENSITY = 2f;
+
+    private float _currentShakeTimer;
+
     public void CastSpell(Spell spellToCast, LivingBeing target = null)
     {
         switch (spellToCast.spellTarget)
@@ -40,6 +48,7 @@ public class SpellManager : MonoBehaviour
                         ManagerLocator.Instance._enemiesManager.ReduceEnemiesAttackSpeed();
                         break;
                     case SpellEffect.TOTALDESTRUCTION:
+                        StartCoroutine(PlayCameraShake());
                         ManagerLocator.Instance._enemiesManager.DESTROYEVERYTHING();
                         break;
                 }
@@ -62,4 +71,21 @@ public class SpellManager : MonoBehaviour
 
     }
 
+    private IEnumerator PlayCameraShake()
+    {
+        CinemachineBasicMultiChannelPerlin cameraNoise = _playerCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cameraNoise.m_AmplitudeGain = SHAKE_INTENSITY;
+
+        float timeRate = 1 / SHAKE_TIMER;
+        float time = 0f;
+
+        while (time <= 1)
+        {
+            time += Time.deltaTime * timeRate; 
+            cameraNoise.m_AmplitudeGain = Mathf.Lerp(SHAKE_INTENSITY, 0, time);
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return null;
+    }
 }

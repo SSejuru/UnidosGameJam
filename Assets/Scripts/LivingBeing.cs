@@ -27,12 +27,16 @@ public class LivingBeing : MonoBehaviour
     public float Health { get => _currentHealth; } 
 
     private float _deathAnimTimer = 0.7f; 
+    private float _colorHurtTimer = 0.5f;
+
+    private IEnumerator damageAnimation;
 
     protected void InitializeStats()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-        _currentHealth = _maxHealth;     
+        _currentHealth = _maxHealth;
+        _maxShield = MaxHealth;
     }
 
     /// <summary>
@@ -41,6 +45,9 @@ public class LivingBeing : MonoBehaviour
     /// <param name="damage"></param>
     public virtual void ApplyDamage(float damage)
     {
+        damageAnimation = PlayHurtAnimation();
+        StartCoroutine(damageAnimation);
+
         //Apply damage to shield
         _shieldHealth -= damage;
 
@@ -69,7 +76,7 @@ public class LivingBeing : MonoBehaviour
             _currentHealth = _maxHealth;     
     }
 
-    public void GiveShield(float shield)
+    public virtual void GiveShield(float shield)
     {
         _shieldHealth += shield;      
     }
@@ -91,6 +98,9 @@ public class LivingBeing : MonoBehaviour
 
     public virtual void Die()
     {
+        if(damageAnimation != null)
+            StopCoroutine(damageAnimation);
+
         _isDead = true;
         StartCoroutine(PlayDeadAnimation());
         Debug.Log(gameObject.name + " died.");
@@ -112,6 +122,26 @@ public class LivingBeing : MonoBehaviour
         }
 
         Destroy(gameObject);
+        yield return null;
+    }
+
+    protected IEnumerator PlayHurtAnimation()
+    {
+        _spriteRenderer.color = Color.red;
+        Color currentColor =_spriteRenderer.color;
+
+        float timeRate = 1 / _colorHurtTimer;
+        float time = 0f;
+
+        while (time <= 1)
+        {
+            time += Time.deltaTime * timeRate;
+            currentColor.g = Mathf.Lerp(0, 1, time);
+            currentColor.b = Mathf.Lerp(0, 1, time);
+            _spriteRenderer.color = currentColor;
+            yield return new WaitForEndOfFrame();
+        }
+        
         yield return null;
     }
 }

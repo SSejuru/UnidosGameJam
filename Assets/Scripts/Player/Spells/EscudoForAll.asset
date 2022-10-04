@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df46c315b54b6c54c8791bbe0e0fb5af, type: 3}
-  m_Name: SuperEscudeichon
+  m_Name: EscudoForAll
   m_EditorClassIdentifier: 
   spellEffect: 4
   spellTarget: 1
   spellAmmount: 30
   spellCost: 90
   cooldown: 1
-  description: ESCUDEICHON PARA TODOS
-  spellName: Super Escudeichon
+  description: Shield your amigos with an Escudo that will cover 20 Health Puntos
+  spellName: Escudo For All
   spellImage: {fileID: 21300000, guid: 65aa42126710d26469879dd8d8e790e6, type: 3}

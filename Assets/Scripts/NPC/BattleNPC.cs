@@ -31,11 +31,12 @@ public class BattleNPC : LivingBeing
     //EnemyTarget to attack
     private GameObject _enemy;
 
-
     // Start is called before the first frame update
     void Start()
     {
         InitializeStats();
+        UpdateHealthBar();
+        UpdateShieldBar();
         ManagerLocator.Instance._npcManager.AddNpc(this);
         SetState(NPCState.Idle);
         GetComponent<Rigidbody2D>().isKinematic = true;
@@ -53,6 +54,34 @@ public class BattleNPC : LivingBeing
         _healthBarContainer.SetActive(value);
     }
 
+    public override void ApplyDamage(float damage)
+    {
+        base.ApplyDamage(damage);
+        UpdateHealthBar();
+        UpdateShieldBar();
+    }
+
+    public override void Heal(float heal)
+    {
+        base.Heal(heal);
+        UpdateHealthBar();
+    }
+
+    public override void GiveShield(float shield)
+    {
+        base.GiveShield(shield);
+        UpdateShieldBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        _healthBarImage.fillAmount = _currentHealth / _maxHealth;
+    }
+
+    private void UpdateShieldBar()
+    {
+        _shieldBarImage.fillAmount = _shieldHealth / _maxShield;
+    }
 
     #region EnemySearch
 
@@ -108,6 +137,11 @@ public class BattleNPC : LivingBeing
         if (_currentState != NPCState.Attacking)
             return;
 
+        if (_enemy.transform.position.x < transform.position.x)
+            _spriteRenderer.flipX = true;
+        else
+            _spriteRenderer.flipX = false;
+
         if (_currentTime > 0)
             _currentTime -= Time.deltaTime;
         else
@@ -117,7 +151,7 @@ public class BattleNPC : LivingBeing
             //Attack and check for state change
             _animator.SetBool("isAttacking", true);
 
-            
+
         }
     }
 

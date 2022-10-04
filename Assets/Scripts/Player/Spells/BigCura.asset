@@ -17,6 +17,8 @@ MonoBehaviour:
   spellAmmount: 40
   spellCost: 90
   cooldown: 1
-  description: Cura puntos to all of your amigos
+  description: 'Help your amigos by healing them some of their missing health puntos
+
+'
   spellName: Big Cura
   spellImage: {fileID: 21300000, guid: 65aa42126710d26469879dd8d8e790e6, type: 3}
