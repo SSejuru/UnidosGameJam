@@ -28,4 +28,5 @@ public class ManagerLocator
     public UIManager _uiManager;
     public MiniGamesManager _miniGamesManager;
     public SoundManager _soundManager;
+    public WinConditionManager _winConditionManager;
 }

@@ -6708,6 +6708,7 @@ MonoBehaviour:
   uiManager: {fileID: 174222869}
   miniGamesManager: {fileID: 1868010044}
   soundManager: {fileID: 934116494}
+  winConditionManager: {fileID: 1999514080}
 --- !u!4 &733078607
 Transform:
   m_ObjectHideFlags: 0
@@ -16555,6 +16556,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977779656}
   m_CullTransparentMesh: 1
+--- !u!1 &1999514078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999514079}
+  - component: {fileID: 1999514080}
+  m_Layer: 0
+  m_Name: WinConditionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1999514079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999514078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2041559168}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999514080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999514078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07cd585e702b704197efd08e7559bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeToBlackPanel: {fileID: 2026932530}
 --- !u!1 &2003262420
 GameObject:
   m_ObjectHideFlags: 0
@@ -17122,6 +17168,7 @@ Transform:
   - {fileID: 1075363722}
   - {fileID: 2031265627}
   - {fileID: 734740631}
+  - {fileID: 1999514079}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

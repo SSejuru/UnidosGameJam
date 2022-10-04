@@ -7,6 +7,8 @@ public class NPCManager : MonoBehaviour
 
     [SerializeField] private List<BattleNPC> _activeNPCs = new List<BattleNPC>();
 
+    public List<BattleNPC> ActiveNPCs { get => _activeNPCs; set => _activeNPCs = value; }
+
     public void AddNpc(BattleNPC npc)
     {
         _activeNPCs.Add(npc);
@@ -15,6 +17,7 @@ public class NPCManager : MonoBehaviour
     public void RemoveNPCFromList(BattleNPC npc)
     {
         _activeNPCs.Remove(npc);
+        ManagerLocator.Instance._winConditionManager.ListenerNPCDeath();
     }
 
     public void HealAllNPCS(float heal)

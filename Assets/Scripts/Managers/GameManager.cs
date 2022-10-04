@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     SoundManager soundManager;
 
+    [SerializeField]
+    WinConditionManager winConditionManager;
+
     private void Awake()
     {
         SetManagers();
@@ -39,5 +42,6 @@ public class GameManager : MonoBehaviour
         ManagerLocator.Instance._uiManager = uiManager;
         ManagerLocator.Instance._miniGamesManager = miniGamesManager;
         ManagerLocator.Instance._soundManager = soundManager;
+        ManagerLocator.Instance._winConditionManager = winConditionManager;
     }
 }

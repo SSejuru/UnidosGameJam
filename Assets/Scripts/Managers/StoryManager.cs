@@ -118,6 +118,7 @@ public class StoryManager : MonoBehaviour
         _playerController.CanMove = true;
         _playerController.Initialize();
         _isSkipping = false;
+        ManagerLocator.Instance._winConditionManager.InitializeManager();
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(IsCinemachineNotBlending);
         _fadeToBlackPanel.LeanAlpha(0, 0.5f);
