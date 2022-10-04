@@ -19,4 +19,4 @@ MonoBehaviour:
   cooldown: 1
   description: Shield your amigos with an Escudo that will cover 20 Health Puntos
   spellName: Escudo For All
-  spellImage: {fileID: 21300000, guid: 65aa42126710d26469879dd8d8e790e6, type: 3}
+  spellImage: {fileID: 21300000, guid: 1644d6fc6ea9ebd47b1234fe1e26255b, type: 3}

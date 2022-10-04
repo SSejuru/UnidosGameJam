@@ -44,7 +44,7 @@ public class StoryManager : MonoBehaviour
 
     private IEnumerator _sentenceDrawingCoroutine;
 
-    private Vector2 _playerStartPosition = new Vector2(0.03f, 7.82f);
+    private Vector2 _playerStartPosition = new Vector2(0.03f, 6.58f);
 
 
     private void Start()
@@ -108,6 +108,7 @@ public class StoryManager : MonoBehaviour
         _fadeToBlackPanel.LeanAlpha(1, 1);
         yield return new WaitForSeconds(1);
         ManagerLocator.Instance._npcManager.ToggleAllNPCSHealthBar(true);
+        ManagerLocator.Instance._npcManager.TurnOnAllNPCSSpriteRenderer();
         _playerController.gameObject.SetActive(true);
         yield return new WaitForEndOfFrame();
         ManagerLocator.Instance._uiManager.StartGame();
@@ -119,6 +120,7 @@ public class StoryManager : MonoBehaviour
         _playerController.Initialize();
         _isSkipping = false;
         ManagerLocator.Instance._winConditionManager.InitializeManager();
+        ManagerLocator.Instance._enemiesManager.InitializeAllSpawners();
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(IsCinemachineNotBlending);
         _fadeToBlackPanel.LeanAlpha(0, 0.5f);

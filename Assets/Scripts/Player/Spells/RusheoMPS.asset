@@ -19,4 +19,4 @@ MonoBehaviour:
   cooldown: 1
   description: Increase your MANA POR SEGUNDO (MPS) to get mana rapido!
   spellName: Rusheo MPS
-  spellImage: {fileID: 21300000, guid: 65aa42126710d26469879dd8d8e790e6, type: 3}
+  spellImage: {fileID: 21300000, guid: a0a4ce8cfe88def4c9002afb5bd3bd15, type: 3}

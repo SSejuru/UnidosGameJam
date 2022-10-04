@@ -57,7 +57,7 @@ MonoBehaviour:
   _searchMask:
     serializedVersion: 2
     m_Bits: 768
-  _searchRadius: 10
+  _searchRadius: 20
 --- !u!212 &7475968279117919523
 SpriteRenderer:
   m_ObjectHideFlags: 0

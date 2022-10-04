@@ -137,6 +137,12 @@ public class BattleNPC : LivingBeing
         if (_currentState != NPCState.Attacking)
             return;
 
+        if( _enemy == null)
+        {
+            SetState(NPCState.Idle);
+            return;
+        }
+
         if (_enemy.transform.position.x < transform.position.x)
             _spriteRenderer.flipX = true;
         else
@@ -157,6 +163,12 @@ public class BattleNPC : LivingBeing
 
     private void InflictDamage()
     {
+        if (_enemy == null)
+        {
+            SetState(NPCState.Idle);
+            return;
+        }
+
         _enemy.GetComponent<LivingBeing>().ApplyDamage(_attackDamage);
 
         if (_enemy.GetComponent<LivingBeing>().IsDead)

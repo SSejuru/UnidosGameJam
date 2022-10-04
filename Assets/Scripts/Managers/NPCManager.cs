@@ -52,4 +52,12 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    public void TurnOnAllNPCSSpriteRenderer()
+    {
+        for (int i = 0; i < _activeNPCs.Count; i++)
+        {
+            _activeNPCs[i].GetComponent<SpriteRenderer>().enabled = true;
+        }
+    }
+
 }

@@ -58,7 +58,9 @@ public class Enemy : LivingBeing
         }
     }
 
-    //Find closest target
+    /// <summary>
+    /// Cast a overlap circle that will pick a random target between all results
+    /// </summary>
     private void FindTarget()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, _searchRadius, _searchMask);
@@ -66,18 +68,11 @@ public class Enemy : LivingBeing
         float distance = _searchRadius;
         bool targetFound = false;
 
-        foreach (var hitCollider in hitColliders)
+        if(hitColliders.Length > 0)
         {
-            if (Vector2.Distance(hitCollider.transform.position, transform.position) < distance)
-            {
-                if (!hitCollider.GetComponent<LivingBeing>().IsDead)
-                {
-                    distance = Vector2.Distance(hitCollider.transform.position, transform.position);
-                    _target = hitCollider.gameObject;
-                    targetFound = true;
-                }
-            }
-        }
+            _target = hitColliders[Random.Range(0, hitColliders.Length)].gameObject;
+            targetFound = true;
+        }      
 
         if (targetFound)
             SetState(EnemyState.Moving);
@@ -113,6 +108,12 @@ public class Enemy : LivingBeing
     {
         if (_currentState != EnemyState.Attacking)
             return;
+
+        if (_target == null)
+        {
+            SetState(EnemyState.SearchingTarget);
+            return;
+        }
 
         //Stop Moving
         _rigidBody.velocity = Vector2.zero;

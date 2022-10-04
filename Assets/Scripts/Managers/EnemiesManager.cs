@@ -4,9 +4,29 @@ using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
-    [SerializeField]
-    private List<Transform> _enemySpawners = new List<Transform>();
+    private List<EnemySpawner> _enemySpawners = new List<EnemySpawner>();
     private List<Enemy> _enemies = new List<Enemy>();
+
+    public void AddEnemySpawner(EnemySpawner spawner)
+    {
+        _enemySpawners.Add(spawner);
+    }
+
+    public void InitializeAllSpawners()
+    {
+        foreach (EnemySpawner spawner in _enemySpawners)
+        {
+            spawner.Initialize();
+        }
+    }
+
+    public void StopAllSpawners()
+    {
+        foreach (EnemySpawner spawner in _enemySpawners)
+        {
+            spawner.StopSpawner();
+        }
+    }
 
     public void AddEnemy(Enemy enemy)
     {
