@@ -16,12 +16,19 @@ public class Minigame : MonoBehaviour, IInteractable
     [SerializeField]
     protected float _cooldownTimer = 10f;
 
+    [Header("CircleSprites")]
+    [SerializeField] protected Sprite _turnedOffSprite;
+    [SerializeField] protected Sprite _turnedOnSprite;
+
+    [Space(20)]
+
     private bool _isOnCooldown = false;
     private float _timerCD = 0f;
 
     public float TimeToFinishMinigame { get => _timeToFinishMinigame; }
     public float ManaOnWin { get => _manaOnWin; }
     public GameObject CanvasMinigame { get => _canvasMinigame; }
+    public bool IsOnCooldown { get => _isOnCooldown; set => _isOnCooldown = value; }
 
     protected virtual void Update()
     {
@@ -39,6 +46,7 @@ public class Minigame : MonoBehaviour, IInteractable
     /// </summary>
     public virtual void StartMinigame()
     {
+        ManagerLocator.Instance._playerController.ToggleInteractIcon(false);
         _canvasMinigame.SetActive(true);
         ManagerLocator.Instance._miniGamesManager.StartMinigame(this);
     }
@@ -48,7 +56,8 @@ public class Minigame : MonoBehaviour, IInteractable
     /// </summary>
     public virtual void EndMinigame(bool minigameWon)
     {
-        _isOnCooldown = true;      
+        _isOnCooldown = true;    
+        GetComponent<SpriteRenderer>().sprite = _turnedOffSprite;
 
         ManagerLocator.Instance._miniGamesManager.EndMinigameStatus(minigameWon);
 
@@ -68,9 +77,23 @@ public class Minigame : MonoBehaviour, IInteractable
             else
             {
                 _isOnCooldown = false;
+                CheckIfPlayerIsOnCircle();
+                GetComponent<SpriteRenderer>().sprite = _turnedOnSprite;
                 _timerCD = 0f;
             }
 
+        }
+    }
+
+    private void CheckIfPlayerIsOnCircle()
+    {
+        LayerMask mask = LayerMask.GetMask("Player");
+
+        Collider2D playerCollider = Physics2D.OverlapCircle(gameObject.transform.position, 2, mask);
+
+        if(playerCollider != null)
+        {
+            ManagerLocator.Instance._playerController.ToggleInteractIcon(true);
         }
     }
 

@@ -7,6 +7,8 @@ public class PlayerController : LivingBeing
     [SerializeField] protected float _maxMana = 80f;
     [SerializeField] protected float _manaRegenRate = 0.5f;
 
+    [SerializeField] private GameObject _interactImage;
+
     protected float _currentMana;
     private float _manaTimer = 0f;
 
@@ -27,6 +29,11 @@ public class PlayerController : LivingBeing
     {
         _interactionComp = GetComponent<PlayerInteraction>();
         STARTING_MANA_REGEN_RATE = _manaRegenRate;
+    }
+
+    public void ToggleInteractIcon(bool value)
+    {
+        _interactImage.SetActive(value);
     }
 
     public void SetMovingStatus(bool canMove)

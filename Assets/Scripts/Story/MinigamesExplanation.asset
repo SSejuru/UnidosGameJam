@@ -20,3 +20,5 @@ MonoBehaviour:
       by god!
     - If you complete the task succesfully god will give you mana instantly to help
       you cast your spells
+    - Once you try to solve a task, the magic circle will go on cooldown for some
+      time, you have to wait until it lights up to use it again!
