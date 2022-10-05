@@ -78,6 +78,7 @@ public class StoryManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(IsCinemachineNotBlending);
+        ManagerLocator.Instance._soundManager.StartGameAudio();
         _skipButton.gameObject.SetActive(true);
         StartCoroutine(StartStory(_firstDialogue));
         yield return new WaitForEndOfFrame();

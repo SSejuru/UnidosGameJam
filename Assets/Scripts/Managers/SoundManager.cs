@@ -60,6 +60,7 @@ public class SoundManager : MonoBehaviour
     {
         _backgroundMusic.Stop();
         _backgroundMusic.clip = _backgroundMusicAudio;
+        _backgroundMusic.volume = 0.7f;
         _backgroundMusic.Play();
     }
 

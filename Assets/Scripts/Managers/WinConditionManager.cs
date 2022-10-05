@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class WinConditionManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class WinConditionManager : MonoBehaviour
     [SerializeField] private Sprite _panelVictorySprite;
     [SerializeField] private Sprite _panelDefeatSprite;
     [SerializeField] private GameObject _buttonBackToMenu;
+    [SerializeField] private TextMeshProUGUI _timerText;
 
 
     [Header("Data")]
@@ -52,8 +54,15 @@ public class WinConditionManager : MonoBehaviour
             //Hacer timer aca
             _timer -= Time.deltaTime;
 
+            float minutes = Mathf.FloorToInt(_timer / 60);
+            float seconds = Mathf.FloorToInt(_timer % 60);
+
+            _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
             if (_timer <= 0)
             {
+                _timer = 0;
+
                 if (aliveNPC > 0)
                 {
                     _didPlayerWin = true;
