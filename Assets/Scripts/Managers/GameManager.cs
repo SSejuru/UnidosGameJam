@@ -28,8 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     WinConditionManager winConditionManager;
 
+    [SerializeField] private Texture2D cursor;
+
     private void Awake()
     {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
         SetManagers();
     }
 

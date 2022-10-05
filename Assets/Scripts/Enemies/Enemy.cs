@@ -158,8 +158,8 @@ public class Enemy : LivingBeing
 
     private void OnDrawGizmosSelected()
     {
-        UnityEditor.Handles.color = Color.red;
-        UnityEditor.Handles.DrawWireDisc(transform.position, transform.forward, _searchRadius);
+        //UnityEditor.Handles.color = Color.red;
+        //UnityEditor.Handles.DrawWireDisc(transform.position, transform.forward, _searchRadius);
     }
 
     private void SetState(EnemyState state)

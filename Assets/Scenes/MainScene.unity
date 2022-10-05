@@ -2254,6 +2254,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6626426791037955059, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
@@ -4222,10 +4226,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013679504, y: -2.22}
+  m_Offset: {x: -0.013679504, y: -0.34}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49999994, y: 0.28670144}
     oldSize: {x: 8, y: 8}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
@@ -4286,7 +4290,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &182840652
 GameObject:
   m_ObjectHideFlags: 0
@@ -8043,6 +8047,10 @@ PrefabInstance:
     - target: {fileID: 6626426791037955057, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626426791037955059, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -13960,10 +13968,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013679504, y: -2.22}
+  m_Offset: {x: -0.013679504, y: -0.34}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49999994, y: 0.28670144}
     oldSize: {x: 8, y: 8}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
@@ -14024,7 +14032,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1001 &534100541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18142,6 +18150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6626426791037955059, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
@@ -19040,6 +19052,7 @@ MonoBehaviour:
   miniGamesManager: {fileID: 1868010044}
   soundManager: {fileID: 934116494}
   winConditionManager: {fileID: 1999514080}
+  cursor: {fileID: 2800000, guid: d9fc89a303e7fb9469fdc7db005bb2e0, type: 3}
 --- !u!4 &733078607
 Transform:
   m_ObjectHideFlags: 0
@@ -19125,6 +19138,7 @@ MonoBehaviour:
   - {fileID: 1924281098}
   - {fileID: 296288388}
   - {fileID: 205061790}
+  - {fileID: 1829299253}
   _menuCanvas: {fileID: 1416385793}
   _fadeToBlackPanel: {fileID: 2026932530}
   _skipButton: {fileID: 828250783}
@@ -20094,6 +20108,10 @@ PrefabInstance:
     - target: {fileID: 6626426791037955057, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626426791037955059, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -23554,6 +23572,10 @@ PrefabInstance:
     - target: {fileID: 6626426791037955057, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626426791037955059, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -38651,7 +38673,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1001 &1656645831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38771,6 +38793,10 @@ PrefabInstance:
     - target: {fileID: 6626426791037955057, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626426791037955059, guid: c546a3ea7f5de4047871246b45c4745a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -54905,10 +54931,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013679504, y: -2.22}
+  m_Offset: {x: -0.013679504, y: -0.34}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49999994, y: 0.28670144}
     oldSize: {x: 8, y: 8}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
@@ -54969,7 +54995,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1001 &5376679048749479465
 PrefabInstance:
   m_ObjectHideFlags: 0
