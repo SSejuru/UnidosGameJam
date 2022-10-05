@@ -50,14 +50,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _shieldHealth: 0
-  _movementSpeed: 1.5
-  _attackTimer: 1
-  _attackDamage: 10
+  _movementSpeed: 1
+  _attackTimer: 1.5
+  _attackDamage: 4
   _attackDistance: 1
   _searchMask:
     serializedVersion: 2
     m_Bits: 768
-  _searchRadius: 20
+  _searchRadius: 35
 --- !u!212 &7475968279117919523
 SpriteRenderer:
   m_ObjectHideFlags: 0

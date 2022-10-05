@@ -15,7 +15,7 @@ MonoBehaviour:
   spellEffect: 0
   spellTarget: 2
   spellAmmount: 0
-  spellCost: 50
+  spellCost: 80
   cooldown: 15
   description: Reduces all enemies Ataque speed to la mitad (Only affects enemies
     vivos)

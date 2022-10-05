@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WinConditionManager : MonoBehaviour
@@ -94,5 +95,11 @@ public class WinConditionManager : MonoBehaviour
     private void ActivateButton()
     {
         _buttonBackToMenu.SetActive(true);
+    }
+
+    public void PlayAgain()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }

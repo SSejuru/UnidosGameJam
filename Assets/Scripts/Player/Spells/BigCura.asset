@@ -15,7 +15,7 @@ MonoBehaviour:
   spellEffect: 2
   spellTarget: 1
   spellAmmount: 40
-  spellCost: 90
+  spellCost: 50
   cooldown: 1
   description: 'Help your amigos by healing them some of their missing health puntos
 

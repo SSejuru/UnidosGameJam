@@ -49,6 +49,8 @@ public class StoryManager : MonoBehaviour
 
     private void Start()
     {
+        _fadeToBlackPanel.alpha = 1.0f;
+        _fadeToBlackPanel.LeanAlpha(0, 2);
         _dialogueSentences = new Queue<string>();
         _playerController = ManagerLocator.Instance._playerController;
     }

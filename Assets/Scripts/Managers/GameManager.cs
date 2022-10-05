@@ -44,4 +44,9 @@ public class GameManager : MonoBehaviour
         ManagerLocator.Instance._soundManager = soundManager;
         ManagerLocator.Instance._winConditionManager = winConditionManager;
     }
+
+    public void EndGame()
+    {
+        Application.Quit();
+    }
 }

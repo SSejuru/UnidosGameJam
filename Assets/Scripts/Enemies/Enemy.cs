@@ -138,6 +138,11 @@ public class Enemy : LivingBeing
 
     public void InflictDamage()
     {
+        if (_target == null)
+        {
+            SetState(EnemyState.SearchingTarget);
+            return;
+        }
         _target.GetComponent<LivingBeing>().ApplyDamage(_attackDamage);
 
         if (_target.GetComponent<LivingBeing>().IsDead)

@@ -15,7 +15,7 @@ MonoBehaviour:
   spellEffect: 3
   spellTarget: 1
   spellAmmount: 30
-  spellCost: 90
+  spellCost: 50
   cooldown: 1
   description: Shield your amigos with an Escudo that will cover 20 Health Puntos
   spellName: Escudo For All

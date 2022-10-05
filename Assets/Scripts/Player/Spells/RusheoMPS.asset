@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellEffect: 6
   spellTarget: 0
-  spellAmmount: 0.2
+  spellAmmount: 1
   spellCost: 20
   cooldown: 1
   description: Increase your MANA POR SEGUNDO (MPS) to get mana rapido!

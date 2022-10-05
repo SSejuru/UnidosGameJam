@@ -15,7 +15,7 @@ MonoBehaviour:
   spellEffect: 7
   spellTarget: 1
   spellAmmount: 0.05
-  spellCost: 50
+  spellCost: 80
   cooldown: 15
   description: RAPIDO RAPIDO RAPIDO!!! Increase the Ataque Rate of your amigos!
   spellName: Aumento de Morale

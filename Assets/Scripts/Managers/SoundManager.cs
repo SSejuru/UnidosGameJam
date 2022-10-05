@@ -28,6 +28,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource _soundFX;
 
+    [Header("GameStart Audio")]
+    private AudioClip _backgroundMusicAudio;
+
     [Header("Volume Sliders")]
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
@@ -51,6 +54,13 @@ public class SoundManager : MonoBehaviour
         {
             _playerClick.Play();
         } 
+    }
+
+    public void StartGameAudio()
+    {
+        _backgroundMusic.Stop();
+        _backgroundMusic.clip = _backgroundMusicAudio;
+        _backgroundMusic.Play();
     }
 
     public void PlaySoundEffect(ENUM_SOUND soundToPlay)
