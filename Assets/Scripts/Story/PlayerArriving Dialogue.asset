@@ -35,7 +35,8 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 4e29b028412b1bc478172698823c883f, type: 2}
     sentences:
     - 'Exactly! '
-    - Gods speak spanish, mortals speak english
+    - Gods speak spanish, mortals speak english...
+    - And mages speak spanglish
   - character: {fileID: 11400000, guid: 5cfb8d0569cff9a4f945f940c6da241c, type: 2}
     sentences:
     - 'Oh Wow... '

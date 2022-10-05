@@ -23993,7 +23993,7 @@ MonoBehaviour:
   _attackDamage: 10
   _attackDistance: 10
   _maxMana: 1000
-  _manaRegenRate: 1
+  _manaRegenRate: 0.5
   _interactImage: {fileID: 1755221993}
 --- !u!114 &943444113
 MonoBehaviour:
