@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource _soundFX;
 
     [Header("GameStart Audio")]
-    private AudioClip _backgroundMusicAudio;
+    [SerializeField] private AudioClip _backgroundMusicAudio;
 
     [Header("Volume Sliders")]
     [SerializeField] private Slider _musicSlider;
