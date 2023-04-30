@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerController : LivingBeing
 {
-    [SerializeField] protected float _maxMana = 80f;
-    [SerializeField] protected float _manaRegenRate = 0.5f;
+    [SerializeField] private float _maxMana = 80f;
+    [SerializeField] private float _manaRegenRate = 0.5f;
 
     [SerializeField] private GameObject _interactImage;
 
-    protected float _currentMana;
+    private float _currentMana;
     private float _manaTimer = 0f;
 
     public float MaxMana { get => _maxMana; }
-    public float Mana { get => _currentMana; }
+    public float CurrentMana { get => _currentMana; }
 
     private Rigidbody2D _rigidBody;
 

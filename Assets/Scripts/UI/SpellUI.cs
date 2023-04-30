@@ -27,7 +27,7 @@ public class SpellUI : MonoBehaviour, IPointerDownHandler
         // Set up Data
         _spellIcon.sprite = _magicSpell.spellImage;
         _spellInactiveIcon.sprite = _magicSpell.spellImage;
-        _currentPlayerMana = ManagerLocator.Instance._playerController.Mana;
+        _currentPlayerMana = ManagerLocator.Instance._playerController.CurrentMana;
         CheckForSpellStatus();
     }
 

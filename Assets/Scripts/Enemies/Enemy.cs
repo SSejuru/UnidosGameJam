@@ -24,23 +24,6 @@ public class Enemy : LivingBeing
 
     private Rigidbody2D _rigidBody;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        InitializeStats();
-        ManagerLocator.Instance._enemiesManager.AddEnemy(this);
-        _rigidBody = GetComponent<Rigidbody2D>();
-        SetState(EnemyState.SearchingTarget);
-    }
-
-    // Update is called once per frame
-    protected void Update()
-    {
-        CheckForTargetSearch();
-        Move();
-        Attack();
-    }
-
     /// <summary>
     /// Checks every couple seconds for a target
     /// </summary>
@@ -63,7 +46,8 @@ public class Enemy : LivingBeing
     /// </summary>
     private void FindTarget()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, _searchRadius, _searchMask);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position,
+            _searchRadius, _searchMask);
 
         float distance = _searchRadius;
         bool targetFound = false;
@@ -134,7 +118,22 @@ public class Enemy : LivingBeing
             //Attack and check for state change
             _animator.SetBool("isAttacking", true);
         }
-    }  
+    }
+
+    void Start()
+    {
+        InitializeStats();
+        ManagerLocator.Instance._enemiesManager.AddEnemy(this);
+        _rigidBody = GetComponent<Rigidbody2D>();
+        SetState(EnemyState.SearchingTarget);
+    }
+
+    protected void Update()
+    {
+        CheckForTargetSearch();
+        Move();
+        Attack();
+    }
 
     public void InflictDamage()
     {
